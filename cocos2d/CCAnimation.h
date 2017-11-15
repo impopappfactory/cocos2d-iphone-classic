@@ -44,20 +44,20 @@
 @interface CCAnimationFrame : NSObject <NSCopying>
 {
     CCSpriteFrame* _spriteFrame;
-    float _delayUnits;
+    CGFloat _delayUnits;
     NSDictionary *_userInfo;
 }
 /** CCSpriteFrameName to be used */
 @property (nonatomic, readwrite, retain) CCSpriteFrame* spriteFrame;
 
 /**  how many units of time the frame takes */
-@property (nonatomic, readwrite) float delayUnits;
+@property (nonatomic, readwrite) CGFloat delayUnits;
 
 /**  A CCAnimationFrameDisplayedNotification notification will be broadcasted when the frame is displayed with this dictionary as UserInfo. If UserInfo is nil, then no notification will be broadcasted. */
 @property (nonatomic, readwrite, retain) NSDictionary *userInfo;
 
 /** initializes the animation frame with a spriteframe, number of delay units and a notification user info */
--(id) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo;
+-(id) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame delayUnits:(CGFloat)delayUnits userInfo:(NSDictionary*)userInfo;
 @end
 
 /** A CCAnimation object is used to perform animations on the CCSprite objects.
@@ -71,18 +71,18 @@
 @interface CCAnimation : NSObject <NSCopying>
 {
 	NSMutableArray	*_frames;
-	float			_totalDelayUnits;
-	float			_delayPerUnit;
+	CGFloat			_totalDelayUnits;
+	CGFloat			_delayPerUnit;
 	BOOL			_restoreOriginalFrame;
 	NSUInteger		_loops;
 }
 
 /** total Delay units of the CCAnimation. */
-@property (nonatomic, readonly) float totalDelayUnits;
+@property (nonatomic, readonly) CGFloat totalDelayUnits;
 /** Delay in seconds of the "delay unit" */
-@property (nonatomic, readwrite) float delayPerUnit;
+@property (nonatomic, readwrite) CGFloat delayPerUnit;
 /** duration in seconds of the whole animation. It is the result of totalDelayUnits * delayPerUnit */
-@property (nonatomic,readonly) float duration;
+@property (nonatomic,readonly) CGFloat duration;
 /** array of CCAnimationFrames */
 @property (nonatomic,readwrite,retain) NSMutableArray *frames;
 /** whether or not it shall restore the original frame when the animation finishes */
@@ -105,12 +105,12 @@
  The frames will be added with one "delay unit".
  @since v0.99.5
  */
-+(id) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames delay:(float)delay;
++(id) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames delay:(CGFloat)delay;
 
 /* Creates an animation with an array of CCAnimationFrame, the delay per units in seconds and and how many times it should be executed.
  @since v2.0
  */
-+(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
++(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(CGFloat)delayPerUnit loops:(NSUInteger)loops;
 
 
 /** Initializes a CCAnimation with an array of CCSpriteFrame.
@@ -123,12 +123,12 @@
  The frames will be added with one "delay unit".
  @since v0.99.5
  */
--(id) initWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay;
+-(id) initWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames delay:(CGFloat)delay;
 
 /* Initializes an animation with an array of CCAnimationFrame and the delay per units in seconds.
  @since v2.0
  */
--(id) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
+-(id) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(CGFloat)delayPerUnit loops:(NSUInteger)loops;
 
 /** Adds a CCSpriteFrame to a CCAnimation.
  The frame will be added with one "delay unit".

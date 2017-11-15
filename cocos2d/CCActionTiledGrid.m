@@ -311,7 +311,7 @@ typedef struct
 
 @implementation CCFadeOutTRTiles
 
--(float)testFunc:(CGSize)pos time:(ccTime)time
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time
 {
 	CGPoint	n = ccpMult( ccp(_gridSize.width,_gridSize.height), time);
 	if ( (n.x+n.y) == 0.0f )
@@ -332,7 +332,7 @@ typedef struct
 	[self setTile:pos coords:coords];
 }
 
--(void)transformTile:(CGPoint)pos distance:(float)distance
+-(void)transformTile:(CGPoint)pos distance:(CGFloat)distance
 {
 	ccQuad3	coords = [self originalTile:pos];
 	CGPoint	step = [[_target grid] step];
@@ -360,7 +360,7 @@ typedef struct
 	{
 		for( j = 0; j < _gridSize.height; j++ )
 		{
-			float distance = [self testFunc:CGSizeMake(i,j) time:time];
+			CGFloat distance = [self testFunc:CGSizeMake(i,j) time:time];
 			if ( distance == 0 )
 				[self turnOffTile:ccp(i,j)];
 			else if ( distance < 1 )
@@ -380,7 +380,7 @@ typedef struct
 
 @implementation CCFadeOutBLTiles
 
--(float)testFunc:(CGSize)pos time:(ccTime)time
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time
 {
 	CGPoint	n = ccpMult(ccp(_gridSize.width, _gridSize.height), (1.0f-time));
 	if ( (pos.width+pos.height) == 0 )
@@ -398,7 +398,7 @@ typedef struct
 
 @implementation CCFadeOutUpTiles
 
--(float)testFunc:(CGSize)pos time:(ccTime)time
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time
 {
 	CGPoint	n = ccpMult(ccp(_gridSize.width, _gridSize.height), time);
 	if ( n.y == 0 )
@@ -407,7 +407,7 @@ typedef struct
 	return powf( pos.height / n.y, 6 );
 }
 
--(void)transformTile:(CGPoint)pos distance:(float)distance
+-(void)transformTile:(CGPoint)pos distance:(CGFloat)distance
 {
 	ccQuad3	coords = [self originalTile:pos];
 	CGPoint step = [[_target grid] step];
@@ -429,7 +429,7 @@ typedef struct
 
 @implementation CCFadeOutDownTiles
 
--(float)testFunc:(CGSize)pos time:(ccTime)time
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time
 {
 	CGPoint	n = ccpMult(ccp(_gridSize.width,_gridSize.height), (1.0f - time));
 	if ( pos.height == 0 )
@@ -522,7 +522,7 @@ typedef struct
 {
 	NSUInteger i, l, t;
 
-	l = (NSUInteger)(time * (float)_tilesCount);
+	l = (NSUInteger)(time * (CGFloat)_tilesCount);
 
 	for( i = 0; i < _tilesCount; i++ )
 	{
@@ -549,12 +549,12 @@ typedef struct
 @synthesize amplitude = _amplitude;
 @synthesize amplitudeRate = _amplitudeRate;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize waves:wav amplitude:amp] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -604,12 +604,12 @@ typedef struct
 @synthesize amplitude = _amplitude;
 @synthesize amplitudeRate = _amplitudeRate;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(float)amplitude
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(CGFloat)amplitude
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize jumps:numberOfJumps amplitude:amplitude] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(float)amplitude
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(CGFloat)amplitude
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -632,8 +632,8 @@ typedef struct
 {
 	int i, j;
 
-	float sinz =  (sinf((CGFloat)M_PI*time*_jumps*2) * _amplitude * _amplitudeRate );
-	float sinz2 = (sinf((CGFloat)M_PI*(time*_jumps*2 + 1)) * _amplitude * _amplitudeRate );
+	CGFloat sinz =  (sinf((CGFloat)M_PI*time*_jumps*2) * _amplitude * _amplitudeRate );
+	CGFloat sinz2 = (sinf((CGFloat)M_PI*(time*_jumps*2 + 1)) * _amplitude * _amplitudeRate );
 
 	for( i = 0; i < _gridSize.width; i++ )
 	{
@@ -700,7 +700,7 @@ typedef struct
 	for( j = 0; j < _gridSize.height; j++ )
 	{
 		ccQuad3 coords = [self originalTile:ccp(0,j)];
-		float	direction = 1;
+		CGFloat	direction = 1;
 
 		if ( (j % 2 ) == 0 )
 			direction = -1;
@@ -753,7 +753,7 @@ typedef struct
 	for( i = 0; i < _gridSize.width; i++ )
 	{
 		ccQuad3 coords = [self originalTile:ccp(i,0)];
-		float	direction = 1;
+		CGFloat	direction = 1;
 
 		if ( (i % 2 ) == 0 )
 			direction = -1;

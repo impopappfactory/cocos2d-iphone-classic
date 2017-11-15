@@ -37,7 +37,7 @@
 // that's why the "v2f" functions are needed
 static ccVertex2F v2fzero = (ccVertex2F){0,0};
 
-static inline ccVertex2F v2f( float x, float y )
+static inline ccVertex2F v2f( CGFloat x, CGFloat y )
 {
 	return (ccVertex2F){x,y};
 }
@@ -52,7 +52,7 @@ static inline ccVertex2F v2fsub( ccVertex2F v0, ccVertex2F v1 )
 	return v2f( v0.x-v1.x, v0.y-v1.y );
 }
 
-static inline ccVertex2F v2fmult( ccVertex2F v, float s )
+static inline ccVertex2F v2fmult( ccVertex2F v, CGFloat s )
 {
 	return v2f( v.x * s, v.y * s );
 }
@@ -67,13 +67,13 @@ static inline ccVertex2F v2fneg( ccVertex2F p0 )
 	return v2f( -p0.x, - p0.y );
 }
 
-static inline float v2fdot(ccVertex2F p0, ccVertex2F p1)
+static inline CGFloat v2fdot(ccVertex2F p0, ccVertex2F p1)
 {
 	return  p0.x * p1.x + p0.y * p1.y;
 }
 
 /*
-static inline ccVertex2F v2fforangle( float _a_)
+static inline ccVertex2F v2fforangle( CGFloat _a_)
 {
 	return v2f( cosf(_a_), sinf(_a_) );
 }

@@ -103,19 +103,19 @@ enum {
 @interface CCNode : NSObject
 {
 	// rotation angle
-	float _rotationX, _rotationY;
+	CGFloat _rotationX, _rotationY;
 
 	// scaling factors
-	float _scaleX, _scaleY;
+	CGFloat _scaleX, _scaleY;
 
 	// openGL real Z vertex
-	float _vertexZ;
+	CGFloat _vertexZ;
 
 	// position of the node
 	CGPoint _position;
 
 	// skew angles
-	float _skewX, _skewY;
+	CGFloat _skewX, _skewY;
 
 	// anchor point in points
 	CGPoint _anchorPointInPoints;
@@ -189,34 +189,34 @@ enum {
  @warning: Use it at your own risk since it might break the cocos2d parent-children z order
  @since v0.8
  */
-@property (nonatomic,readwrite) float vertexZ;
+@property (nonatomic,readwrite) CGFloat vertexZ;
 
 /** The X skew angle of the node in degrees.
  This angle describes the shear distortion in the X direction.
  Thus, it is the angle between the Y axis and the left edge of the shape
  The default skewX angle is 0. Positive values distort the node in a CW direction.
  */
-@property(nonatomic,readwrite,assign) float skewX;
+@property(nonatomic,readwrite,assign) CGFloat skewX;
 
 /** The Y skew angle of the node in degrees.
  This angle describes the shear distortion in the Y direction.
  Thus, it is the angle between the X axis and the bottom edge of the shape
  The default skewY angle is 0. Positive values distort the node in a CCW direction.
  */
-@property(nonatomic,readwrite,assign) float skewY;
+@property(nonatomic,readwrite,assign) CGFloat skewY;
 /** The rotation (angle) of the node in degrees. 0 is the default rotation angle. Positive values rotate node CW. */
-@property(nonatomic,readwrite,assign) float rotation;
+@property(nonatomic,readwrite,assign) CGFloat rotation;
 /** The rotation (angle) of the node in degrees. 0 is the default rotation angle. Positive values rotate node CW. It only modifies the X rotation performing a horizontal rotational skew . */
-@property(nonatomic,readwrite,assign) float rotationX;
+@property(nonatomic,readwrite,assign) CGFloat rotationX;
 /** The rotation (angle) of the node in degrees. 0 is the default rotation angle. Positive values rotate node CW. It only modifies the Y rotation performing a vertical rotational skew . */
-@property(nonatomic,readwrite,assign) float rotationY;
+@property(nonatomic,readwrite,assign) CGFloat rotationY;
 
 /** The scale factor of the node. 1.0 is the default scale factor. It modifies the X and Y scale at the same time. */
-@property(nonatomic,readwrite,assign) float scale;
+@property(nonatomic,readwrite,assign) CGFloat scale;
 /** The scale factor of the node. 1.0 is the default scale factor. It only modifies the X scale factor. */
-@property(nonatomic,readwrite,assign) float scaleX;
+@property(nonatomic,readwrite,assign) CGFloat scaleX;
 /** The scale factor of the node. 1.0 is the default scale factor. It only modifies the Y scale factor. */
-@property(nonatomic,readwrite,assign) float scaleY;
+@property(nonatomic,readwrite,assign) CGFloat scaleY;
 /** Position (x,y) of the node in points. (0,0) is the left-bottom corner. */
 @property(nonatomic,readwrite,assign) CGPoint position;
 /** A CCCamera object that lets you move the node using a gluLookAt */

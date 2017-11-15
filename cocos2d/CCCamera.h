@@ -53,17 +53,17 @@
 
 @interface CCCamera : NSObject
 {
-    float _eyeX;
-    float _eyeY;
-    float _eyeZ;
+    CGFloat _eyeX;
+    CGFloat _eyeY;
+    CGFloat _eyeZ;
 
-    float _centerX;
-    float _centerY;
-    float _centerZ;
+    CGFloat _centerX;
+    CGFloat _centerY;
+    CGFloat _centerZ;
 
-    float _upX;
-    float _upY;
-    float _upZ;
+    CGFloat _upX;
+    CGFloat _upY;
+    CGFloat _upZ;
 
 	BOOL _dirty;
 
@@ -74,25 +74,25 @@
 @property (nonatomic,readwrite) BOOL dirty;
 
 /** returns the Z eye */
-+(float) getZEye;
++(CGFloat) getZEye;
 
 /** sets the camera in the defaul position */
 -(void) restore;
 /** Sets the camera using gluLookAt using its eye, center and up_vector */
 -(void) locate;
 /** sets the eye values in points */
--(void) setEyeX: (float)x eyeY:(float)y eyeZ:(float)z;
+-(void) setEyeX: (CGFloat)x eyeY:(CGFloat)y eyeZ:(CGFloat)z;
 /** sets the center values in points */
--(void) setCenterX: (float)x centerY:(float)y centerZ:(float)z;
+-(void) setCenterX: (CGFloat)x centerY:(CGFloat)y centerZ:(CGFloat)z;
 /** sets the up values */
--(void) setUpX: (float)x upY:(float)y upZ:(float)z;
+-(void) setUpX: (CGFloat)x upY:(CGFloat)y upZ:(CGFloat)z;
 
 /** get the eye vector values in points */
--(void) eyeX:(float*)x eyeY:(float*)y eyeZ:(float*)z;
+-(void) eyeX:(CGFloat*)x eyeY:(CGFloat*)y eyeZ:(CGFloat*)z;
 /** get the center vector values in points */
--(void) centerX:(float*)x centerY:(float*)y centerZ:(float*)z;
+-(void) centerX:(CGFloat*)x centerY:(CGFloat*)y centerZ:(CGFloat*)z;
 /** get the up vector values */
--(void) upX:(float*)x upY:(float*)y upZ:(float*)z;
+-(void) upX:(CGFloat*)x upY:(CGFloat*)y upZ:(CGFloat*)z;
 
 
 @end

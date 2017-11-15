@@ -245,13 +245,13 @@
 -(void) setViewport
 {
 	CGPoint offset = CGPointZero;
-	float widthAspect = _winSizeInPixels.width;
-	float heightAspect = _winSizeInPixels.height;
+	CGFloat widthAspect = _winSizeInPixels.width;
+	CGFloat heightAspect = _winSizeInPixels.height;
 
 
 	if( _resizeMode == kCCDirectorResize_AutoScale && ! CGSizeEqualToSize(_originalWinSize, CGSizeZero ) ) {
 		
-		float aspect = _originalWinSize.width / _originalWinSize.height;
+		CGFloat aspect = _originalWinSize.width / _originalWinSize.height;
 		widthAspect = _winSizeInPixels.width;
 		heightAspect = _winSizeInPixels.width / aspect;
 		
@@ -296,7 +296,7 @@
 		case kCCDirectorProjection3D:
 		{
 
-			float zeye = [self getZEye];
+			CGFloat zeye = [self getZEye];
 
 			kmGLMatrixMode(KM_GL_PROJECTION);
 			kmGLLoadIdentity();
@@ -315,7 +315,7 @@
 			kmGLLoadIdentity();
 			kmVec3 eye, center, up;
 
-			float eyeZ = size.height * zeye / _winSizeInPixels.height;
+			CGFloat eyeZ = size.height * zeye / _winSizeInPixels.height;
 
 			kmVec3Fill( &eye, size.width/2, size.height/2, eyeZ );
 			kmVec3Fill( &center, size.width/2, size.height/2, 0 );
@@ -365,11 +365,11 @@
 
 	else {
 
-		float x_diff = _originalWinSize.width / (_winSizeInPixels.width - _winOffset.x * 2);
-		float y_diff = _originalWinSize.height / (_winSizeInPixels.height - _winOffset.y * 2);
+		CGFloat x_diff = _originalWinSize.width / (_winSizeInPixels.width - _winOffset.x * 2);
+		CGFloat y_diff = _originalWinSize.height / (_winSizeInPixels.height - _winOffset.y * 2);
 
-		float adjust_x = (_winSizeInPixels.width * x_diff - _originalWinSize.width ) / 2;
-		float adjust_y = (_winSizeInPixels.height * y_diff - _originalWinSize.height ) / 2;
+		CGFloat adjust_x = (_winSizeInPixels.width * x_diff - _originalWinSize.width ) / 2;
+		CGFloat adjust_y = (_winSizeInPixels.height * y_diff - _originalWinSize.height ) / 2;
 
 		ret = CGPointMake( (x_diff * coords.x) - adjust_x, ( y_diff * coords.y ) - adjust_y );
 	}

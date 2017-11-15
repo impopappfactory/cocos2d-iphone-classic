@@ -91,12 +91,12 @@ simple macro that swaps 2 variables
 
 
 /** @def CCRANDOM_MINUS1_1
- returns a random float between -1 and 1
+ returns a random CGFloat between -1 and 1
  */
 #define CCRANDOM_MINUS1_1() ((random() / (float)0x3fffffff )-1.0f)
 
 /** @def CCRANDOM_0_1
- returns a random float between 0 and 1
+ returns a random CGFloat between 0 and 1
  */
 #define CCRANDOM_0_1() ((random() / (float)0x7fffffff ))
 

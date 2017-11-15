@@ -188,7 +188,7 @@
     return _fontName;
 }
 
-- (void) setFontSize:(float)fontSize
+- (void) setFontSize:(CGFloat)fontSize
 {
 	if( fontSize != _fontSize ) {
 		_fontSize = fontSize;
@@ -199,7 +199,7 @@
 	}
 }
 
-- (float) fontSize
+- (CGFloat) fontSize
 {
     return _fontSize;
 }
@@ -377,7 +377,7 @@
 
 
 /** enable or disable shadow for the label */
-- (void) enableShadowWithOffset:(CGSize)shadowOffset opacity:(float)shadowOpacity blur:(float)shadowBlur updateImage:(Boolean) mustUpdate
+- (void) enableShadowWithOffset:(CGSize)shadowOffset opacity:(CGFloat)shadowOpacity blur:(CGFloat)shadowBlur updateImage:(Boolean) mustUpdate
 {
     bool valueChanged = false;
     
@@ -428,7 +428,7 @@
 }
 
 /** enable or disable stroke */
-- (void) enableStrokeWithColor:(ccColor3B)strokeColor size:(float)strokeSize updateImage:(Boolean) mustUpdate
+- (void) enableStrokeWithColor:(ccColor3B)strokeColor size:(CGFloat)strokeSize updateImage:(Boolean) mustUpdate
 {
     bool valueChanged = false;
     

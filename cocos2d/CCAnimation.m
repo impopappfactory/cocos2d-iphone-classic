@@ -35,7 +35,7 @@
 
 @synthesize spriteFrame = _spriteFrame, delayUnits = _delayUnits, userInfo=_userInfo;
 
--(id) initWithSpriteFrame:(CCSpriteFrame *)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo
+-(id) initWithSpriteFrame:(CCSpriteFrame *)spriteFrame delayUnits:(CGFloat)delayUnits userInfo:(NSDictionary*)userInfo
 {
 	if( (self=[super init]) ) {
 		self.spriteFrame = spriteFrame;
@@ -84,12 +84,12 @@
 	return [[[self alloc] initWithSpriteFrames:frames] autorelease];
 }
 
-+(id) animationWithSpriteFrames:(NSArray*)frames delay:(float)delay
++(id) animationWithSpriteFrames:(NSArray*)frames delay:(CGFloat)delay
 {
 	return [[[self alloc] initWithSpriteFrames:frames delay:delay] autorelease];
 }
 
-+(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops
++(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(CGFloat)delayPerUnit loops:(NSUInteger)loops
 {
 	return [[[self alloc] initWithAnimationFrames:arrayOfAnimationFrames delayPerUnit:delayPerUnit loops:loops] autorelease];
 }
@@ -104,7 +104,7 @@
 	return [self initWithSpriteFrames:frames delay:0];
 }
 
--(id) initWithSpriteFrames:(NSArray*)array delay:(float)delay
+-(id) initWithSpriteFrames:(NSArray*)array delay:(CGFloat)delay
 {
 	if( (self=[super init]) )
 	{
@@ -125,7 +125,7 @@
 	return self;
 }
 
--(id) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops
+-(id) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(CGFloat)delayPerUnit loops:(NSUInteger)loops
 {
 	if( ( self=[super init]) )
 	{
@@ -150,7 +150,7 @@
 			];
 }
 
--(float) duration
+-(CGFloat) duration
 {
 	return _totalDelayUnits * _delayPerUnit;
 }

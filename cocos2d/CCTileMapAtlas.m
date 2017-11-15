@@ -162,26 +162,26 @@
 
 	NSInteger x = pos.x;
 	NSInteger y = pos.y;
-	float row = (value.r % _itemsPerRow);
-	float col = (value.r / _itemsPerRow);
+	CGFloat row = (value.r % _itemsPerRow);
+	CGFloat col = (value.r / _itemsPerRow);
 
-	float textureWide = [[_textureAtlas texture] pixelsWide];
-	float textureHigh = [[_textureAtlas texture] pixelsHigh];
+	CGFloat textureWide = [[_textureAtlas texture] pixelsWide];
+	CGFloat textureHigh = [[_textureAtlas texture] pixelsHigh];
 
-	float itemWidthInPixels = _itemWidth * CC_CONTENT_SCALE_FACTOR();
-    float itemHeightInPixels = _itemHeight * CC_CONTENT_SCALE_FACTOR();
+	CGFloat itemWidthInPixels = _itemWidth * CC_CONTENT_SCALE_FACTOR();
+    CGFloat itemHeightInPixels = _itemHeight * CC_CONTENT_SCALE_FACTOR();
 
 
 #if CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
-	float left		= (2*row*itemWidthInPixels+1)/(2*textureWide);
-	float right		= left+(itemWidthInPixels*2-2)/(2*textureWide);
-	float top		= (2*col*itemHeightInPixels+1)/(2*textureHigh);
-	float bottom	= top+(itemHeightInPixels*2-2)/(2*textureHigh);
+	CGFloat left		= (2*row*itemWidthInPixels+1)/(2*textureWide);
+	CGFloat right		= left+(itemWidthInPixels*2-2)/(2*textureWide);
+	CGFloat top		= (2*col*itemHeightInPixels+1)/(2*textureHigh);
+	CGFloat bottom	= top+(itemHeightInPixels*2-2)/(2*textureHigh);
 #else
-	float left		= (row*itemWidthInPixels)/textureWide;
-	float right		= left+itemWidthInPixels/textureWide;
-	float top		= (col*itemHeightInPixels)/textureHigh;
-	float bottom	= top+itemHeightInPixels/textureHigh;
+	CGFloat left		= (row*itemWidthInPixels)/textureWide;
+	CGFloat right		= left+itemWidthInPixels/textureWide;
+	CGFloat top		= (col*itemHeightInPixels)/textureHigh;
+	CGFloat bottom	= top+itemHeightInPixels/textureHigh;
 #endif
 
 

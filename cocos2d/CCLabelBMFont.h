@@ -170,7 +170,7 @@ typedef struct _KerningHashElement
     // initial string without line breaks
     NSString *_initialString;
     // max width until a line break is added
-    float _width;
+    CGFloat _width;
     // alignment of all lines
     CCTextAlignment _alignment;
     
@@ -208,22 +208,22 @@ typedef struct _KerningHashElement
 /** creates a BMFont label with an initial string and the FNT file. */
 +(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile;
 /** creates a BMFont label with an initial string, the FNT file, width, and alignment option */
-+(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment;
++(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment;
 /** creates a BMFont label with an initial string, the FNT file, width, alignment option and the offset of where the glyphs start on the .PNG image */
-+(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
++(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
 
 /** init a BMFont label with an initial string and the FNT file */
 -(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile;
 /** init a BMFont label with an initial string and the FNT file, width, and alignment option*/
--(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment;
+-(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment;
 /** init a BMFont label with an initial string and the FNT file, width, alignment option and the offset of where the glyphs start on the .PNG image */
--(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
+-(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
 
 /** updates the font chars based on the string to render */
 -(void) createFontChars;
 
 /** set label width */
-- (void)setWidth:(float)width;
+- (void)setWidth:(CGFloat)width;
 
 /** set label alignment */
 - (void)setAlignment:(CCTextAlignment)alignment;

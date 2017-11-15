@@ -44,7 +44,7 @@ typedef enum {
  */
 @interface CCProgressTimer : CCNodeRGBA {
 	CCProgressTimerType	_type;
-	float				_percentage;
+	CGFloat				_percentage;
 	CCSprite			*_sprite;
 
 	int					_vertexDataCount;
@@ -80,7 +80,7 @@ typedef enum {
 @property (nonatomic, readwrite) CGPoint barChangeRate;
 
 /** Percentages are from 0 to 100 */
-@property (nonatomic, readwrite) float percentage;
+@property (nonatomic, readwrite) CGFloat percentage;
 
 /** The image to show the progress percentage */
 @property (nonatomic, readwrite, retain) CCSprite *sprite;

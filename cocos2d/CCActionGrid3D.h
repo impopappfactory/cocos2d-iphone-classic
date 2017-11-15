@@ -30,19 +30,19 @@
 @interface CCWaves3D : CCGrid3DAction
 {
 	NSUInteger _waves;
-	float _amplitude;
-	float _amplitudeRate;
+	CGFloat _amplitude;
+	CGFloat _amplitudeRate;
 }
 
 /** amplitude of the wave */
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** amplitude rate of the wave */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** creates an action with duration, grid size, waves and amplitud */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp;
 /** initializeds an action with duration, grid size, waves and amplitud */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp;
 
 @end
 
@@ -76,20 +76,20 @@
 @interface CCLens3D : CCGrid3DAction
 {
 	CGPoint	_position;
-	float	_radius;
-	float	_lensEffect;
+	CGFloat	_radius;
+	CGFloat	_lensEffect;
 	BOOL	_dirty;
 }
 
 /** lens effect. Defaults to 0.7 - 0 means no effect, 1 is very strong effect */
-@property (nonatomic,readwrite) float lensEffect;
+@property (nonatomic,readwrite) CGFloat lensEffect;
 /** lens center position in Points */
 @property (nonatomic,readwrite) CGPoint position;
 
 /** creates the action with center position in Points, radius, a grid size and duration */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(float)radius;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)radius;
 /** initializes the action with center position in Points, radius, a grid size and duration */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(float)radius;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)radius;
 
 @end
 
@@ -99,23 +99,23 @@
 @interface CCRipple3D : CCGrid3DAction
 {
 	CGPoint	_position;
-	float	_radius;
+	CGFloat	_radius;
 	NSUInteger		_waves;
-	float	_amplitude;
-	float	_amplitudeRate;
+	CGFloat	_amplitude;
+	CGFloat	_amplitudeRate;
 }
 
 /** center position in Points */
 @property (nonatomic,readwrite) CGPoint position;
 /** amplitude */
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** amplitude rate */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** creates the action with a position in points, radius, number of waves, amplitude, a grid size and duration */
-+(id)actionWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(float)r waves:(NSInteger)wav amplitude:(float)amp;
++(id)actionWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)r waves:(NSInteger)wav amplitude:(CGFloat)amp;
 /** initializes the action with a position in points, radius, number of waves, amplitude, a grid size and duration */
--(id)initWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(float)r waves:(NSInteger)wav amplitude:(float)amp;
+-(id)initWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)r waves:(NSInteger)wav amplitude:(CGFloat)amp;
 
 @end
 
@@ -141,20 +141,20 @@
 @interface CCLiquid : CCGrid3DAction
 {
 	NSUInteger _waves;
-	float _amplitude;
-	float _amplitudeRate;
+	CGFloat _amplitude;
+	CGFloat _amplitudeRate;
 
 }
 
 /** amplitude */
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** amplitude rate */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** creates the action with amplitude, a grid and duration */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp;
 /** initializes the action with amplitude, a grid and duration */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp;
 
 @end
 
@@ -164,21 +164,21 @@
 @interface CCWaves : CCGrid3DAction
 {
 	NSUInteger	_waves;
-	float	_amplitude;
-	float	_amplitudeRate;
+	CGFloat	_amplitude;
+	CGFloat	_amplitudeRate;
 	BOOL	_vertical;
 	BOOL	_horizontal;
 }
 
 /** amplitude */
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** amplitude rate */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** initializes the action with amplitude, horizontal sin, vertical sin, a grid and duration */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v;
 /** creates the action with amplitude, horizontal sin, vertical sin, a grid and duration */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v;
 
 @end
 
@@ -189,20 +189,20 @@
 {
 	CGPoint	_position;
 	NSUInteger	_twirls;
-	float	_amplitude;
-	float	_amplitudeRate;
+	CGFloat	_amplitude;
+	CGFloat	_amplitudeRate;
 }
 
 /** twirl center */
 @property (nonatomic,readwrite) CGPoint position;
 /** amplitude */
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** amplitude rate */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** creates the action with center position, number of twirls, amplitude, a grid size and duration */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(float)amp;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(CGFloat)amp;
 /** initializes the action with center position, number of twirls, amplitude, a grid size and duration */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(float)amp;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(CGFloat)amp;
 
 @end

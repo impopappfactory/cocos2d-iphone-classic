@@ -196,49 +196,49 @@ static NSUInteger globalOrderOfArrival = 1;
 #pragma mark Setters
 
 // getters synthesized, setters explicit
--(void) setRotation: (float)newRotation
+-(void) setRotation: (CGFloat)newRotation
 {
 	_rotationX = _rotationY = newRotation;
 	_isTransformDirty = _isInverseDirty = YES;
 }
 
--(float) rotation
+-(CGFloat) rotation
 {
 	NSAssert( _rotationX == _rotationY, @"CCNode#rotation. RotationX != RotationY. Don't know which one to return");
 	return _rotationX;
 }
 
--(void) setRotationX: (float)newX
+-(void) setRotationX: (CGFloat)newX
 {
 	_rotationX = newX;
 	_isTransformDirty = _isInverseDirty = YES;
 }
 
--(void) setRotationY: (float)newY
+-(void) setRotationY: (CGFloat)newY
 {
 	_rotationY = newY;
 	_isTransformDirty = _isInverseDirty = YES;
 }
 
--(void) setScaleX: (float)newScaleX
+-(void) setScaleX: (CGFloat)newScaleX
 {
 	_scaleX = newScaleX;
 	_isTransformDirty = _isInverseDirty = YES;
 }
 
--(void) setScaleY: (float)newScaleY
+-(void) setScaleY: (CGFloat)newScaleY
 {
 	_scaleY = newScaleY;
 	_isTransformDirty = _isInverseDirty = YES;
 }
 
--(void) setSkewX:(float)newSkewX
+-(void) setSkewX:(CGFloat)newSkewX
 {
 	_skewX = newSkewX;
 	_isTransformDirty = _isInverseDirty = YES;
 }
 
--(void) setSkewY:(float)newSkewY
+-(void) setSkewY:(CGFloat)newSkewY
 {
 	_skewY = newSkewY;
 	_isTransformDirty = _isInverseDirty = YES;
@@ -283,18 +283,18 @@ static NSUInteger globalOrderOfArrival = 1;
 	return CGRectApplyAffineTransform(rect, [self nodeToParentTransform]);
 }
 
--(void) setVertexZ:(float)vertexZ
+-(void) setVertexZ:(CGFloat)vertexZ
 {
 	_vertexZ = vertexZ;
 }
 
--(float) scale
+-(CGFloat) scale
 {
 	NSAssert( _scaleX == _scaleY, @"CCNode#scale. ScaleX != ScaleY. Don't know which one to return");
 	return _scaleX;
 }
 
--(void) setScale:(float) s
+-(void) setScale:(CGFloat) s
 {
 	_scaleX = _scaleY = s;
 	_isTransformDirty = _isInverseDirty = YES;
@@ -802,8 +802,8 @@ static NSUInteger globalOrderOfArrival = 1;
 	if ( _isTransformDirty ) {
 
 		// Translate values
-		float x = _position.x;
-		float y = _position.y;
+		CGFloat x = _position.x;
+		CGFloat y = _position.y;
 
 		if ( _ignoreAnchorPointForPosition ) {
 			x += _anchorPointInPoints.x;
@@ -813,10 +813,10 @@ static NSUInteger globalOrderOfArrival = 1;
 		// Rotation values
 		// Change rotation code to handle X and Y
 		// If we skew with the exact same value for both x and y then we're simply just rotating
-		float cx = 1, sx = 0, cy = 1, sy = 0;
+		CGFloat cx = 1, sx = 0, cy = 1, sy = 0;
 		if( _rotationX || _rotationY ) {
-			float radiansX = -CC_DEGREES_TO_RADIANS(_rotationX);
-			float radiansY = -CC_DEGREES_TO_RADIANS(_rotationY);
+			CGFloat radiansX = -CC_DEGREES_TO_RADIANS(_rotationX);
+			CGFloat radiansY = -CC_DEGREES_TO_RADIANS(_rotationY);
 			cx = cosf(radiansX);
 			sx = sinf(radiansX);
 			cy = cosf(radiansY);

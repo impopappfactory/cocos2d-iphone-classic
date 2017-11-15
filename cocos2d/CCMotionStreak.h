@@ -37,9 +37,9 @@
     CCTexture2D *_texture;
     CGPoint _positionR;
     ccBlendFunc _blendFunc;
-    float _stroke;
-    float _fadeDelta;
-    float _minSeg;
+    CGFloat _stroke;
+    CGFloat _fadeDelta;
+    CGFloat _minSeg;
 
     NSUInteger _maxPoints;
     NSUInteger _nuPoints;
@@ -47,7 +47,7 @@
 
     /** Pointers */
     CGPoint *_pointVertexes;
-    float *_pointState;
+    CGFloat *_pointState;
 
     // Opengl
     ccVertex2F *_vertices;
@@ -68,14 +68,14 @@
 @property (nonatomic, retain) CCTexture2D *texture;
 
 /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture filename */
-+ (id) streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color textureFilename:(NSString*)path;
++ (id) streakWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color textureFilename:(NSString*)path;
 /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture */
-+ (id) streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture;
++ (id) streakWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture;
 
 /** initializes a motion streak with fade in seconds, minimum segments, stroke's width, color and texture filename */
-- (id) initWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color textureFilename:(NSString*)path;
+- (id) initWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color textureFilename:(NSString*)path;
 /** initializes a motion streak with fade in seconds, minimum segments, stroke's width, color and texture  */
-- (id) initWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture;
+- (id) initWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture;
 
 /** color used for the tint */
 - (void) tintWithColor:(ccColor3B)colors;

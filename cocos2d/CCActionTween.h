@@ -49,14 +49,14 @@
 {
 	NSString		*_key;
 
-	float			_from, _to;
-	float			_delta;
+	CGFloat			_from, _to;
+	CGFloat			_delta;
 }
 
 /** creates an initializes the action with the property name (key), and the from and to parameters. */
-+ (id)actionWithDuration:(ccTime)aDuration key:(NSString *)key from:(float)from to:(float)to;
++ (id)actionWithDuration:(ccTime)aDuration key:(NSString *)key from:(CGFloat)from to:(CGFloat)to;
 
 /** initializes the action with the property name (key), and the from and to parameters. */
-- (id)initWithDuration:(ccTime)aDuration key:(NSString *)key from:(float)from to:(float)to;
+- (id)initWithDuration:(ccTime)aDuration key:(NSString *)key from:(CGFloat)from to:(CGFloat)to;
 
 @end

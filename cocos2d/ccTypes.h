@@ -394,9 +394,9 @@ typedef struct _ccFontShadow
     // shadow x and y offset
     CGSize m_shadowOffset;
     // shadow blurrines
-    float  m_shadowBlur;
+    CGFloat  m_shadowBlur;
     // shadow opacity
-    float  m_shadowOpacity;
+    CGFloat  m_shadowOpacity;
     
 } ccFontShadow;
 
@@ -407,7 +407,7 @@ typedef struct _ccFontStroke
     // stroke color
     ccColor3B   m_strokeColor;
     // stroke size
-    float       m_strokeSize;
+    CGFloat       m_strokeSize;
     
 } ccFontStroke;
     

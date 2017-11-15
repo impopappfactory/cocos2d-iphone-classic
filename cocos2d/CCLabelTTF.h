@@ -50,14 +50,14 @@
     
     /** font shadow */
     bool    _shadowEnabled;
-    float   _shadowOpacity;
-    float   _shadowBlur;
+    CGFloat   _shadowOpacity;
+    CGFloat   _shadowBlur;
     CGSize  _shadowOffset;
     
     /** font stroke */
     bool        _strokeEnabled;
     ccColor3B   _strokeColor;
-    float       _strokeSize;
+    CGFloat       _strokeSize;
     
     /** font fill color */
     ccColor3B   _textFillColor;
@@ -66,7 +66,7 @@
 /** Font name used in the label */
 @property (nonatomic,retain) NSString* fontName;
 /** Font size of the label */
-@property (nonatomic,assign) float fontSize;
+@property (nonatomic,assign) CGFloat fontSize;
 /** Dimensions of the label in Points */
 @property (nonatomic,assign) CGSize dimensions;
 /** The alignment of the label */
@@ -150,13 +150,13 @@
 
 
 /** enable or disable shadow for the label */
-- (void) enableShadowWithOffset:(CGSize)shadowOffset opacity:(float)shadowOpacity blur:(float)shadowBlur updateImage:(Boolean) mustUpdate;
+- (void) enableShadowWithOffset:(CGSize)shadowOffset opacity:(CGFloat)shadowOpacity blur:(CGFloat)shadowBlur updateImage:(Boolean) mustUpdate;
 
 /** disable shadow rendering */
 - (void) disableShadowAndUpdateImage:(Boolean)mustUpdate;
 
 /** enable or disable stroke */
-- (void) enableStrokeWithColor:(ccColor3B)strokeColor size:(float)strokeSize updateImage:(Boolean) mustUpdate;
+- (void) enableStrokeWithColor:(ccColor3B)strokeColor size:(CGFloat)strokeSize updateImage:(Boolean) mustUpdate;
 
 /** disable stroke */
 - (void) disableStrokeAndUpdateImage:(Boolean) mustUpdate;

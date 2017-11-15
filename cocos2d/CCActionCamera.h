@@ -32,17 +32,17 @@
  */
 @interface CCActionCamera : CCActionInterval <NSCopying>
 {
-	float _centerXOrig;
-	float _centerYOrig;
-	float _centerZOrig;
+	CGFloat _centerXOrig;
+	CGFloat _centerYOrig;
+	CGFloat _centerZOrig;
 
-	float _eyeXOrig;
-	float _eyeYOrig;
-	float _eyeZOrig;
+	CGFloat _eyeXOrig;
+	CGFloat _eyeYOrig;
+	CGFloat _eyeZOrig;
 
-	float _upXOrig;
-	float _upYOrig;
-	float _upZOrig;
+	CGFloat _upXOrig;
+	CGFloat _upYOrig;
+	CGFloat _upZOrig;
 }
 // XXX Needed for BridgeSupport
 -(void) startWithTarget:(id)aTarget;
@@ -53,23 +53,23 @@
  */
 @interface CCOrbitCamera : CCActionCamera <NSCopying>
 {
-	float _radius;
-	float _deltaRadius;
-	float _angleZ;
-	float _deltaAngleZ;
-	float _angleX;
-	float _deltaAngleX;
+	CGFloat _radius;
+	CGFloat _deltaRadius;
+	CGFloat _angleZ;
+	CGFloat _deltaAngleZ;
+	CGFloat _angleX;
+	CGFloat _deltaAngleX;
 
-	float _radZ;
-	float _radDeltaZ;
-	float _radX;
-	float _radDeltaX;
+	CGFloat _radZ;
+	CGFloat _radDeltaZ;
+	CGFloat _radX;
+	CGFloat _radDeltaX;
 
 }
 /** creates a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
-+(id) actionWithDuration:(float) t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx;
++(id) actionWithDuration:(CGFloat) t radius:(CGFloat)r deltaRadius:(CGFloat) dr angleZ:(CGFloat)z deltaAngleZ:(CGFloat)dz angleX:(CGFloat)x deltaAngleX:(CGFloat)dx;
 /** initializes a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
--(id) initWithDuration:(float) t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx;
+-(id) initWithDuration:(CGFloat) t radius:(CGFloat)r deltaRadius:(CGFloat) dr angleZ:(CGFloat)z deltaAngleZ:(CGFloat)dz angleX:(CGFloat)x deltaAngleX:(CGFloat)dx;
 /** positions the camera according to spherical coordinates */
--(void) sphericalRadius:(float*) r zenith:(float*) zenith azimuth:(float*) azimuth;
+-(void) sphericalRadius:(CGFloat*) r zenith:(CGFloat*) zenith azimuth:(CGFloat*) azimuth;
 @end

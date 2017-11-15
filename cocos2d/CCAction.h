@@ -170,10 +170,10 @@ enum {
 	CGPoint _fullScreenSize;
 
 	/* world boundaries */
-	float _leftBoundary;
-	float _rightBoundary;
-	float _topBoundary;
-	float _bottomBoundary;
+	CGFloat _leftBoundary;
+	CGFloat _rightBoundary;
+	CGFloat _topBoundary;
+	CGFloat _bottomBoundary;
 }
 
 /** alter behavior - turn on/off boundary */

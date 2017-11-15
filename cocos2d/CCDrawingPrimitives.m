@@ -245,7 +245,7 @@ void ccDrawSolidPoly( const CGPoint *poli, NSUInteger numberOfPoints, ccColor4F 
 }
 
 
-void ccDrawCircle( CGPoint center, float r, float a, NSUInteger segs, BOOL drawLineToCenter)
+void ccDrawCircle( CGPoint center, CGFloat r, CGFloat a, NSUInteger segs, BOOL drawLineToCenter)
 {
 	lazy_init();
 
@@ -253,14 +253,14 @@ void ccDrawCircle( CGPoint center, float r, float a, NSUInteger segs, BOOL drawL
 	if (drawLineToCenter)
 		additionalSegment++;
 
-	const float coef = 2.0f * (float)M_PI/segs;
+	const CGFloat coef = 2.0f * (CGFloat)M_PI/segs;
 
 	GLfloat *vertices = calloc( sizeof(GLfloat)*2*(segs+2), 1);
 	if( ! vertices )
 		return;
 
 	for(NSUInteger i = 0;i <= segs; i++) {
-		float rads = i*coef;
+		CGFloat rads = i*coef;
 		GLfloat j = r * cosf(rads + a) + center.x;
 		GLfloat k = r * sinf(rads + a) + center.y;
 
@@ -284,20 +284,20 @@ void ccDrawCircle( CGPoint center, float r, float a, NSUInteger segs, BOOL drawL
 	CC_INCREMENT_GL_DRAWS(1);
 }
 
-void ccDrawSolidCircle( CGPoint center, float r, NSUInteger segs)
+void ccDrawSolidCircle( CGPoint center, CGFloat r, NSUInteger segs)
 {
 	lazy_init();
     
 	int additionalSegment = 1;
     
-	const float coef = 2.0f * (float)M_PI/segs;
+	const CGFloat coef = 2.0f * (CGFloat)M_PI/segs;
     
 	GLfloat *vertices = calloc( sizeof(GLfloat)*2*(segs+2), 1);
 	if( ! vertices )
 		return;
     
 	for(NSUInteger i = 0;i <= segs; i++) {
-		float rads = i*coef;
+		CGFloat rads = i*coef;
 		GLfloat j = r * cosf(rads) + center.x;
 		GLfloat k = r * sinf(rads) + center.y;
         
@@ -329,14 +329,14 @@ void ccDrawArc(CGPoint center, CGFloat r, CGFloat a, CGFloat arcLength, NSUInteg
 	if (drawLineToCenter)
 		additionalSegment++;
     
-    const float coef = arcLength / segs;
+    const CGFloat coef = arcLength / segs;
     
     GLfloat *vertices = calloc( sizeof(GLfloat)*2*(segs+2), 1);
     if( ! vertices )
         return;
     
 	for(NSUInteger i = 0;i <= segs; i++) {
-		float rads = i*coef;
+		CGFloat rads = i*coef;
 		GLfloat j = r * cosf(rads + a) + center.x;
 		GLfloat k = r * sinf(rads + a) + center.y;
         
@@ -372,14 +372,14 @@ void ccDrawSolidArc(CGPoint center, CGFloat r, CGFloat a, CGFloat arcLength, NSU
     
     const int additionalSegment = 2;
     
-    const float coef = arcLength / segs;
+    const CGFloat coef = arcLength / segs;
     
     GLfloat *vertices = calloc( sizeof(GLfloat)*2*(segs+2), 1);
     if( ! vertices )
         return;
     
 	for(NSUInteger i = 0;i <= segs; i++) {
-		float rads = i*coef;
+		CGFloat rads = i*coef;
 		GLfloat j = r * cosf(rads + a) + center.x;
 		GLfloat k = r * sinf(rads + a) + center.y;
         
@@ -413,7 +413,7 @@ void ccDrawQuadBezier(CGPoint origin, CGPoint control, CGPoint destination, NSUI
 
 	ccVertex2F vertices[segments + 1];
 
-	float t = 0.0f;
+	CGFloat t = 0.0f;
 	for(NSUInteger i = 0; i < segments; i++)
 	{
 		vertices[i].x = powf(1 - t, 2) * origin.x + 2.0f * (1 - t) * t * control.x + t * t * destination.x;
@@ -491,7 +491,7 @@ void ccDrawCubicBezier(CGPoint origin, CGPoint control1, CGPoint control2, CGPoi
 
 	ccVertex2F vertices[segments + 1];
 
-	float t = 0;
+	CGFloat t = 0;
 	for(NSUInteger i = 0; i < segments; i++)
 	{
 		vertices[i].x = powf(1 - t, 3) * origin.x + 3.0f * powf(1 - t, 2) * t * control1.x + 3.0f * (1 - t) * t * t * control2.x + t * t * t * destination.x;

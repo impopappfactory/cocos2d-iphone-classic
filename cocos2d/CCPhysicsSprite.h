@@ -54,7 +54,7 @@ class b2Body;
 	b2Body	*_b2Body;
 	
 	// Pixels to Meters ratio
-	float	_PTMRatio;
+	CGFloat	_PTMRatio;
 #endif // CC_ENABLE_BOX2D_INTEGRATION
 }
 
@@ -75,7 +75,7 @@ class b2Body;
 /** Body accessor when using box2d */
 @property(nonatomic, assign) b2Body *b2Body;
 
-@property(nonatomic, assign) float PTMRatio;
+@property(nonatomic, assign) CGFloat PTMRatio;
 
 #endif // CC_ENABLE_BOX2D_INTEGRATION
 

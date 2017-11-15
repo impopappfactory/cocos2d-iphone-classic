@@ -166,8 +166,8 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
 		_width = width;
 		_height = height;
 		_format = pixelFormat;
-		_maxS = size.width / (float)width;
-		_maxT = size.height / (float)height;
+		_maxS = size.width / (CGFloat)width;
+		_maxT = size.height / (CGFloat)height;
 
 		_hasPremultipliedAlpha = NO;
 
@@ -513,8 +513,8 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     bool effectsEnabled = (([definition shadowEnabled]) || ([definition strokeEnabled]));
     
     // compute the padding needed by shadow and stroke
-    float shadowStrokePaddingX = 0.0f;
-    float shadowStrokePaddingY = 0.0f;
+    CGFloat shadowStrokePaddingX = 0.0f;
+    CGFloat shadowStrokePaddingY = 0.0f;
     
     
     if ( [definition strokeEnabled] )
@@ -524,8 +524,8 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     
     if ( [definition shadowEnabled] )
     {
-        shadowStrokePaddingX = max(shadowStrokePaddingX, (float)abs([definition shadowOffset].width));
-        shadowStrokePaddingY = max(shadowStrokePaddingY, (float)abs([definition shadowOffset].height));
+        shadowStrokePaddingX = max(shadowStrokePaddingX, (CGFloat)abs([definition shadowOffset].width));
+        shadowStrokePaddingY = max(shadowStrokePaddingY, (CGFloat)abs([definition shadowOffset].height));
     }
     
     // add the padding (this could be 0 if no shadow and no stroke)
@@ -555,7 +555,7 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     {
         colorSpace = CGColorSpaceCreateDeviceRGB();
         context    = CGBitmapContextCreate(data, textureWidth, textureHeight, 8, textureWidth * 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-        CGContextSetRGBFillColor(context, ((float)definition.fontFillColor.r) /255.0, ((float)definition.fontFillColor.g/255.0), ((float)definition.fontFillColor.b/255.0), 1.0);
+        CGContextSetRGBFillColor(context, ((CGFloat)definition.fontFillColor.r) /255.0, ((CGFloat)definition.fontFillColor.g/255.0), ((CGFloat)definition.fontFillColor.b/255.0), 1.0);
     }
     else
     {
@@ -596,8 +596,8 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
         CGContextSetShadow(context, offset, [definition shadowBlur]);
     }
     
-    float textOriginX  = 0.0;
-    float textOriginY  = 0.0;
+    CGFloat textOriginX  = 0.0;
+    CGFloat textOriginY  = 0.0;
     
     if ( [definition shadowOffset].width < 0 )
     {
@@ -856,9 +856,9 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     {
         static const int COLOR_COMPONENTS = 4;
         CGFloat strokeC[COLOR_COMPONENTS];
-        strokeC[0] = ((float)[definition strokeColor].r)/255.0f;
-        strokeC[1] = ((float)[definition strokeColor].g)/255.0f;
-        strokeC[2] = ((float)[definition strokeColor].b)/255.0f;
+        strokeC[0] = ((CGFloat)[definition strokeColor].r)/255.0f;
+        strokeC[1] = ((CGFloat)[definition strokeColor].g)/255.0f;
+        strokeC[2] = ((CGFloat)[definition strokeColor].b)/255.0f;
         strokeC[3] = 1.0f;
         
         NSColorSpace *colorSpace = [NSColorSpace sRGBColorSpace];
@@ -876,9 +876,9 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     {
         static const int COLOR_COMPONENTS = 4;
         CGFloat fillC[COLOR_COMPONENTS];
-        fillC[0] = ((float)definition.fontFillColor.r)/255.0f;
-        fillC[1] = ((float)definition.fontFillColor.g)/255.0f;
-        fillC[2] = ((float)definition.fontFillColor.b)/255.0f;
+        fillC[0] = ((CGFloat)definition.fontFillColor.r)/255.0f;
+        fillC[1] = ((CGFloat)definition.fontFillColor.g)/255.0f;
+        fillC[2] = ((CGFloat)definition.fontFillColor.b)/255.0f;
         fillC[3] = 1.0f;
         
         NSColorSpace *colorSpace    = [NSColorSpace sRGBColorSpace];
@@ -904,10 +904,10 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     }
     
     // compute the padding needed by shadow and stroke
-    float shadowStrokePaddingX = 0.0f;
-    float shadowStrokePaddingY = 0.0f;
-    float translationX = 0.0;
-    float translationY = 0.0;
+    CGFloat shadowStrokePaddingX = 0.0f;
+    CGFloat shadowStrokePaddingY = 0.0f;
+    CGFloat translationX = 0.0;
+    CGFloat translationY = 0.0;
     
     if ([definition strokeEnabled])
     {
@@ -916,8 +916,8 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
     
     if ( [definition shadowEnabled] )
     {
-        shadowStrokePaddingX = max(shadowStrokePaddingX, (float)abs([definition shadowOffset].width));
-        shadowStrokePaddingY = max(shadowStrokePaddingY, (float)abs([definition shadowOffset].height));
+        shadowStrokePaddingX = max(shadowStrokePaddingX, (CGFloat)abs([definition shadowOffset].width));
+        shadowStrokePaddingY = max(shadowStrokePaddingY, (CGFloat)abs([definition shadowOffset].height));
         
         if ([definition shadowOffset].width != 0 )
         {

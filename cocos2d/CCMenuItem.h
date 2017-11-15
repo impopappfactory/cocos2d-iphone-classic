@@ -128,7 +128,7 @@
 	CCNode<CCLabelProtocol, CCRGBAProtocol> *_label;
 	ccColor3B	_colorBackup;
 	ccColor3B	_disabledColor;
-	float		_originalScale;
+	CGFloat		_originalScale;
 }
 
 /** the color that will be used to disable the item */

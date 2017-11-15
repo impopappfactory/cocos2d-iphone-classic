@@ -148,8 +148,8 @@
 		for(unsigned int i=0; i < _parallaxArray->num; i++ ) {
 
 			CGPointObject *point = _parallaxArray->arr[i];
-			float x = -pos.x + pos.x * point.ratio.x + point.offset.x;
-			float y = -pos.y + pos.y * point.ratio.y + point.offset.y;
+			CGFloat x = -pos.x + pos.x * point.ratio.x + point.offset.x;
+			CGFloat y = -pos.y + pos.y * point.ratio.y + point.offset.y;
 			point.child.position = ccp(x,y);
 		}
 

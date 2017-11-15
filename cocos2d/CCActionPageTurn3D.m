@@ -34,15 +34,15 @@
  */
 -(void)update:(ccTime)time
 {
-	float tt = MAX( 0, time - 0.25f );
-	float deltaAy = ( tt * tt * 500);
-	float ay = -100 - deltaAy;
+	CGFloat tt = MAX( 0, time - 0.25f );
+	CGFloat deltaAy = ( tt * tt * 500);
+	CGFloat ay = -100 - deltaAy;
 
-	float deltaTheta = - (float) M_PI_2 * sqrtf( time) ;
-	float theta = /*0.01f*/ + (float) M_PI_2 +deltaTheta;
+	CGFloat deltaTheta = - (CGFloat) M_PI_2 * sqrtf( time) ;
+	CGFloat theta = /*0.01f*/ + (CGFloat) M_PI_2 +deltaTheta;
 
-	float sinTheta = sinf(theta);
-	float cosTheta = cosf(theta);
+	CGFloat sinTheta = sinf(theta);
+	CGFloat cosTheta = cosf(theta);
 
 	for( int i = 0; i <=_gridSize.width; i++ )
 	{
@@ -51,11 +51,11 @@
 			// Get original vertex
 			ccVertex3F	p = [self originalVertex:ccp(i,j)];
 
-			float R = sqrtf(p.x*p.x + (p.y - ay) * (p.y - ay));
-			float r = R * sinTheta;
-			float alpha = asinf( p.x / R );
-			float beta = alpha / sinTheta;
-			float cosBeta = cosf( beta );
+			CGFloat R = sqrtf(p.x*p.x + (p.y - ay) * (p.y - ay));
+			CGFloat r = R * sinTheta;
+			CGFloat alpha = asinf( p.x / R );
+			CGFloat beta = alpha / sinTheta;
+			CGFloat cosBeta = cosf( beta );
 
 			// If beta > PI then we've wrapped around the cone
 			// Reduce the radius to stop these points interfering with others

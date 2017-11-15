@@ -87,12 +87,12 @@
 /** CCAccelDeccelAmplitude action */
 @interface CCAccelDeccelAmplitude : CCActionInterval
 {
-	float			_rate;
+	CGFloat			_rate;
 	CCActionInterval *_other;
 }
 
 /** amplitude rate */
-@property (nonatomic,readwrite) float rate;
+@property (nonatomic,readwrite) CGFloat rate;
 
 /** creates the action with an inner action that has the amplitude property, and a duration time */
 +(id)actionWithAction:(CCAction*)action duration:(ccTime)d;
@@ -106,12 +106,12 @@
 /** CCAccelAmplitude action */
 @interface CCAccelAmplitude : CCActionInterval
 {
-	float			_rate;
+	CGFloat			_rate;
 	CCActionInterval *_other;
 }
 
 /** amplitude rate */
-@property (nonatomic,readwrite) float rate;
+@property (nonatomic,readwrite) CGFloat rate;
 
 /** creates the action with an inner action that has the amplitude property, and a duration time */
 +(id)actionWithAction:(CCAction*)action duration:(ccTime)d;
@@ -125,12 +125,12 @@
 /** CCDeccelAmplitude action */
 @interface CCDeccelAmplitude : CCActionInterval
 {
-	float			_rate;
+	CGFloat			_rate;
 	CCActionInterval *_other;
 }
 
 /** amplitude rate */
-@property (nonatomic,readwrite) float rate;
+@property (nonatomic,readwrite) CGFloat rate;
 
 /** creates the action with an inner action that has the amplitude property, and a duration time */
 +(id)actionWithAction:(CCAction*)action duration:(ccTime)d;

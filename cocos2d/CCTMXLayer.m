@@ -86,8 +86,8 @@ int compareInts (const void * a, const void * b);
 {
 	// XXX: is 35% a good estimate ?
 	CGSize size = layerInfo.layerSize;
-	float totalNumberOfTiles = size.width * size.height;
-	float capacity = totalNumberOfTiles * 0.35f + 1; // 35 percent is occupied ?
+	CGFloat totalNumberOfTiles = size.width * size.height;
+	CGFloat capacity = totalNumberOfTiles * 0.35f + 1; // 35 percent is occupied ?
 
 	CCTexture2D *tex = nil;
 	if( tilesetInfo )
@@ -244,7 +244,7 @@ int compareInts (const void * a, const void * b);
 			_useAutomaticVertexZ = YES;
 
 			NSString *alphaFuncVal = [self propertyNamed:@"cc_alpha_func"];
-			float alphaFuncValue = [alphaFuncVal floatValue];
+			CGFloat alphaFuncValue = [alphaFuncVal floatValue];
 
 			self.shaderProgram = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTextureColorAlphaTest];
 
@@ -656,7 +656,7 @@ int compareInts (const void * a, const void * b)
 
 -(CGPoint) positionForHexAt:(CGPoint)pos
 {
-	float diffY = 0;
+	CGFloat diffY = 0;
 	if( (int)pos.x % 2 == 1 )
 		diffY = -_mapTileSize.height/2 ;
 

@@ -135,7 +135,7 @@
 		_blendFunc.dst = [[dictionary valueForKey:@"blendFuncDestination"] intValue];
 
 		// color
-		float r,g,b,a;
+		CGFloat r,g,b,a;
 
 		r = [[dictionary valueForKey:@"startColorRed"] floatValue];
 		g = [[dictionary valueForKey:@"startColorGreen"] floatValue];
@@ -168,8 +168,8 @@
 		_endSizeVar = [[dictionary valueForKey:@"finishParticleSizeVariance"] floatValue];
 
 		// position
-		float x = [[dictionary valueForKey:@"sourcePositionx"] floatValue];
-		float y = [[dictionary valueForKey:@"sourcePositiony"] floatValue];
+		CGFloat x = [[dictionary valueForKey:@"sourcePositionx"] floatValue];
+		CGFloat y = [[dictionary valueForKey:@"sourcePositiony"] floatValue];
 		self.position = ccp(x,y);
 		_posVar.x = [[dictionary valueForKey:@"sourcePositionVariancex"] floatValue];
 		_posVar.y = [[dictionary valueForKey:@"sourcePositionVariancey"] floatValue];
@@ -210,9 +210,9 @@
 
 		// or Mode B: radius movement
 		else if( _emitterMode == kCCParticleModeRadius ) {
-			float maxRadius = [[dictionary valueForKey:@"maxRadius"] floatValue];
-			float maxRadiusVar = [[dictionary valueForKey:@"maxRadiusVariance"] floatValue];
-			float minRadius = [[dictionary valueForKey:@"minRadius"] floatValue];
+			CGFloat maxRadius = [[dictionary valueForKey:@"maxRadius"] floatValue];
+			CGFloat maxRadiusVar = [[dictionary valueForKey:@"maxRadiusVariance"] floatValue];
+			CGFloat minRadius = [[dictionary valueForKey:@"minRadius"] floatValue];
 
 			_mode.B.startRadius = maxRadius;
 			_mode.B.startRadiusVar = maxRadiusVar;
@@ -384,21 +384,21 @@
 	particle->deltaColor.a = (end.a - start.a) / particle->timeToLive;
 
 	// size
-	float startS = _startSize + _startSizeVar * CCRANDOM_MINUS1_1();
+	CGFloat startS = _startSize + _startSizeVar * CCRANDOM_MINUS1_1();
 	startS = MAX(0, startS); // No negative value
 
 	particle->size = startS;
 	if( _endSize == kCCParticleStartSizeEqualToEndSize )
 		particle->deltaSize = 0;
 	else {
-		float endS = _endSize + _endSizeVar * CCRANDOM_MINUS1_1();
+		CGFloat endS = _endSize + _endSizeVar * CCRANDOM_MINUS1_1();
 		endS = MAX(0, endS);	// No negative values
 		particle->deltaSize = (endS - startS) / particle->timeToLive;
 	}
 
 	// rotation
-	float startA = _startSpin + _startSpinVar * CCRANDOM_MINUS1_1();
-	float endA = _endSpin + _endSpinVar * CCRANDOM_MINUS1_1();
+	CGFloat startA = _startSpin + _startSpinVar * CCRANDOM_MINUS1_1();
+	CGFloat endA = _endSpin + _endSpinVar * CCRANDOM_MINUS1_1();
 	particle->rotation = startA;
 	particle->deltaRotation = (endA - startA) / particle->timeToLive;
 
@@ -411,13 +411,13 @@
 
 
 	// direction
-	float a = CC_DEGREES_TO_RADIANS( _angle + _angleVar * CCRANDOM_MINUS1_1() );
+	CGFloat a = CC_DEGREES_TO_RADIANS( _angle + _angleVar * CCRANDOM_MINUS1_1() );
 
 	// Mode Gravity: A
 	if( _emitterMode == kCCParticleModeGravity ) {
 
 		CGPoint v = {cosf( a ), sinf( a )};
-		float s = _mode.A.speed + _mode.A.speedVar * CCRANDOM_MINUS1_1();
+		CGFloat s = _mode.A.speed + _mode.A.speedVar * CCRANDOM_MINUS1_1();
 
 		// direction
 		particle->mode.A.dir = ccpMult( v, s );
@@ -432,8 +432,8 @@
 	// Mode Radius: B
 	else {
 		// Set the default diameter of the particle from the source position
-		float startRadius = _mode.B.startRadius + _mode.B.startRadiusVar * CCRANDOM_MINUS1_1();
-		float endRadius = _mode.B.endRadius + _mode.B.endRadiusVar * CCRANDOM_MINUS1_1();
+		CGFloat startRadius = _mode.B.startRadius + _mode.B.startRadiusVar * CCRANDOM_MINUS1_1();
+		CGFloat endRadius = _mode.B.endRadius + _mode.B.endRadiusVar * CCRANDOM_MINUS1_1();
 
 		particle->mode.B.radius = startRadius;
 
@@ -489,7 +489,7 @@
 	CC_PROFILER_START_CATEGORY(kCCProfilerCategoryParticles , @"CCParticleSystem - update");
 
 	if( _active && _emissionRate ) {
-		float rate = 1.0f / _emissionRate;
+		CGFloat rate = 1.0f / _emissionRate;
 		
 		//issue #1201, prevent bursts of particles, due to too high emitCounter
 		if (_particleCount < _totalParticles)
@@ -539,7 +539,7 @@
 					radial = ccpMult(radial, p->mode.A.radialAccel);
 
 					// tangential acceleration
-					float newy = tangential.x;
+					CGFloat newy = tangential.x;
 					tangential.x = -tangential.y;
 					tangential.y = newy;
 					tangential = ccpMult(tangential, p->mode.A.tangentialAccel);
@@ -712,45 +712,45 @@
 }
 
 #pragma mark ParticleSystem - Properties of Gravity Mode
--(void) setTangentialAccel:(float)t
+-(void) setTangentialAccel:(CGFloat)t
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	_mode.A.tangentialAccel = t;
 }
--(float) tangentialAccel
+-(CGFloat) tangentialAccel
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	return _mode.A.tangentialAccel;
 }
 
--(void) setTangentialAccelVar:(float)t
+-(void) setTangentialAccelVar:(CGFloat)t
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	_mode.A.tangentialAccelVar = t;
 }
--(float) tangentialAccelVar
+-(CGFloat) tangentialAccelVar
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	return _mode.A.tangentialAccelVar;
 }
 
--(void) setRadialAccel:(float)t
+-(void) setRadialAccel:(CGFloat)t
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	_mode.A.radialAccel = t;
 }
--(float) radialAccel
+-(CGFloat) radialAccel
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	return _mode.A.radialAccel;
 }
 
--(void) setRadialAccelVar:(float)t
+-(void) setRadialAccelVar:(CGFloat)t
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	_mode.A.radialAccelVar = t;
 }
--(float) radialAccelVar
+-(CGFloat) radialAccelVar
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	return _mode.A.radialAccelVar;
@@ -767,23 +767,23 @@
 	return _mode.A.gravity;
 }
 
--(void) setSpeed:(float)speed
+-(void) setSpeed:(CGFloat)speed
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	_mode.A.speed = speed;
 }
--(float) speed
+-(CGFloat) speed
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	return _mode.A.speed;
 }
 
--(void) setSpeedVar:(float)speedVar
+-(void) setSpeedVar:(CGFloat)speedVar
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	_mode.A.speedVar = speedVar;
 }
--(float) speedVar
+-(CGFloat) speedVar
 {
 	NSAssert( _emitterMode == kCCParticleModeGravity, @"Particle Mode should be Gravity");
 	return _mode.A.speedVar;
@@ -791,67 +791,67 @@
 
 #pragma mark ParticleSystem - Properties of Radius Mode
 
--(void) setStartRadius:(float)startRadius
+-(void) setStartRadius:(CGFloat)startRadius
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	_mode.B.startRadius = startRadius;
 }
--(float) startRadius
+-(CGFloat) startRadius
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	return _mode.B.startRadius;
 }
 
--(void) setStartRadiusVar:(float)startRadiusVar
+-(void) setStartRadiusVar:(CGFloat)startRadiusVar
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	_mode.B.startRadiusVar = startRadiusVar;
 }
--(float) startRadiusVar
+-(CGFloat) startRadiusVar
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	return _mode.B.startRadiusVar;
 }
 
--(void) setEndRadius:(float)endRadius
+-(void) setEndRadius:(CGFloat)endRadius
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	_mode.B.endRadius = endRadius;
 }
--(float) endRadius
+-(CGFloat) endRadius
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	return _mode.B.endRadius;
 }
 
--(void) setEndRadiusVar:(float)endRadiusVar
+-(void) setEndRadiusVar:(CGFloat)endRadiusVar
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	_mode.B.endRadiusVar = endRadiusVar;
 }
--(float) endRadiusVar
+-(CGFloat) endRadiusVar
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	return _mode.B.endRadiusVar;
 }
 
--(void) setRotatePerSecond:(float)degrees
+-(void) setRotatePerSecond:(CGFloat)degrees
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	_mode.B.rotatePerSecond = degrees;
 }
--(float) rotatePerSecond
+-(CGFloat) rotatePerSecond
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	return _mode.B.rotatePerSecond;
 }
 
--(void) setRotatePerSecondVar:(float)degrees
+-(void) setRotatePerSecondVar:(CGFloat)degrees
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	_mode.B.rotatePerSecondVar = degrees;
 }
--(float) rotatePerSecondVar
+-(CGFloat) rotatePerSecondVar
 {
 	NSAssert( _emitterMode == kCCParticleModeRadius, @"Particle Mode should be Radius");
 	return _mode.B.rotatePerSecondVar;
@@ -881,25 +881,25 @@
 }
 
 //don't use a transform matrix, this is faster
--(void) setScale:(float) s
+-(void) setScale:(CGFloat) s
 {
 	_transformSystemDirty = YES;
 	[super setScale:s];
 }
 
--(void) setRotation: (float)newRotation
+-(void) setRotation: (CGFloat)newRotation
 {
 	_transformSystemDirty = YES;
 	[super setRotation:newRotation];
 }
 
--(void) setScaleX: (float)newScaleX
+-(void) setScaleX: (CGFloat)newScaleX
 {
 	_transformSystemDirty = YES;
 	[super setScaleX:newScaleX];
 }
 
--(void) setScaleY: (float)newScaleY
+-(void) setScaleY: (CGFloat)newScaleY
 {
 	_transformSystemDirty = YES;
 	[super setScaleY:newScaleY];

@@ -37,7 +37,7 @@
  It includes all the features of ParticleSystem.
 
  Special features and Limitations:
-  - Particle size can be any float number.
+  - Particle size can be any CGFloat number.
   - The system can be scaled
   - The particles can be rotated
   - It supports subrects

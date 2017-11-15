@@ -110,29 +110,29 @@
 	const unsigned char *s = (unsigned char*) [_string UTF8String];
 
 	CCTexture2D *texture = [_textureAtlas texture];
-	float textureWide = [texture pixelsWide];
-	float textureHigh = [texture pixelsHigh];
-    float itemWidthInPixels = _itemWidth * CC_CONTENT_SCALE_FACTOR();
-    float itemHeightInPixels = _itemHeight * CC_CONTENT_SCALE_FACTOR();
+	CGFloat textureWide = [texture pixelsWide];
+	CGFloat textureHigh = [texture pixelsHigh];
+    CGFloat itemWidthInPixels = _itemWidth * CC_CONTENT_SCALE_FACTOR();
+    CGFloat itemHeightInPixels = _itemHeight * CC_CONTENT_SCALE_FACTOR();
 
 
 	for( NSUInteger i=0; i<n; i++)
 	{
 		unsigned char a = s[i] - _mapStartChar;
-		float row = (a % _itemsPerRow);
-		float col = (a / _itemsPerRow);
+		CGFloat row = (a % _itemsPerRow);
+		CGFloat col = (a / _itemsPerRow);
 
 #if CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
 		// Issue #938. Don't use texStepX & texStepY
-		float left		= (2*row*itemWidthInPixels+1)/(2*textureWide);
-		float right		= left+(itemWidthInPixels*2-2)/(2*textureWide);
-		float top		= (2*col*itemHeightInPixels+1)/(2*textureHigh);
-		float bottom	= top+(itemHeightInPixels*2-2)/(2*textureHigh);
+		CGFloat left		= (2*row*itemWidthInPixels+1)/(2*textureWide);
+		CGFloat right		= left+(itemWidthInPixels*2-2)/(2*textureWide);
+		CGFloat top		= (2*col*itemHeightInPixels+1)/(2*textureHigh);
+		CGFloat bottom	= top+(itemHeightInPixels*2-2)/(2*textureHigh);
 #else
-		float left		= row*itemWidthInPixels/textureWide;
-		float right		= left+itemWidthInPixels/textureWide;
-		float top		= col*itemHeightInPixels/textureHigh;
-		float bottom	= top+itemHeightInPixels/textureHigh;
+		CGFloat left		= row*itemWidthInPixels/textureWide;
+		CGFloat right		= left+itemWidthInPixels/textureWide;
+		CGFloat top		= col*itemHeightInPixels/textureHigh;
+		CGFloat bottom	= top+itemHeightInPixels/textureHigh;
 #endif // ! CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
 
 		quad.tl.texCoords.u = left;

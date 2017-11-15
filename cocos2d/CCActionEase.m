@@ -35,7 +35,7 @@
 #import "CCActionEase.h"
 
 #ifndef M_PI_X_2
-#define M_PI_X_2 (float)M_PI * 2.0f
+#define M_PI_X_2 (CGFloat)M_PI * 2.0f
 #endif
 
 #pragma mark EaseAction
@@ -106,12 +106,12 @@
 //
 @implementation CCEaseRateAction
 @synthesize rate=_rate;
-+(id) actionWithAction: (CCActionInterval*) action rate:(float)rate
++(id) actionWithAction: (CCActionInterval*) action rate:(CGFloat)rate
 {
 	return [[[self alloc] initWithAction: action rate:rate] autorelease ];
 }
 
--(id) initWithAction: (CCActionInterval*) action rate:(float)rate
+-(id) initWithAction: (CCActionInterval*) action rate:(CGFloat)rate
 {
 	if( (self=[super initWithAction:action ]) )
 		self.rate = rate;
@@ -348,7 +348,7 @@
 @implementation CCEaseSineIn
 -(void) update: (ccTime) t
 {
-	[_inner update:-1*cosf(t * (float)M_PI_2) +1];
+	[_inner update:-1*cosf(t * (CGFloat)M_PI_2) +1];
 }
 
 - (CCActionInterval*) reverse
@@ -363,7 +363,7 @@
 @implementation CCEaseSineOut
 -(void) update: (ccTime) t
 {
-	[_inner update:sinf(t * (float)M_PI_2)];
+	[_inner update:sinf(t * (CGFloat)M_PI_2)];
 }
 
 - (CCActionInterval*) reverse
@@ -378,7 +378,7 @@
 @implementation CCEaseSineInOut
 -(void) update: (ccTime) t
 {
-	[_inner update:-0.5f*(cosf( (float)M_PI*t) - 1)];
+	[_inner update:-0.5f*(cosf( (CGFloat)M_PI*t) - 1)];
 }
 @end
 
@@ -397,7 +397,7 @@
 	return [[[self alloc] initWithAction:action period:0.3f] autorelease];
 }
 
-+(id) actionWithAction: (CCActionInterval*) action period:(float)period
++(id) actionWithAction: (CCActionInterval*) action period:(CGFloat)period
 {
 	return [[[self alloc] initWithAction:action period:period] autorelease];
 }
@@ -407,7 +407,7 @@
 	return [self initWithAction:action period:0.3f];
 }
 
--(id) initWithAction: (CCActionInterval*) action period:(float)period
+-(id) initWithAction: (CCActionInterval*) action period:(CGFloat)period
 {
 	if( (self=[super initWithAction:action]) )
 		_period = period;
@@ -441,7 +441,7 @@
 		newT = t;
 
 	else {
-		float s = _period / 4;
+		CGFloat s = _period / 4;
 		t = t - 1;
 		newT = -powf(2, 10 * t) * sinf( (t-s) *M_PI_X_2 / _period);
 	}
@@ -467,7 +467,7 @@
 		newT = t;
 
 	} else {
-		float s = _period / 4;
+		CGFloat s = _period / 4;
 		newT = powf(2, -10 * t) * sinf( (t-s) *M_PI_X_2 / _period) + 1;
 	}
 	[_inner update:newT];

@@ -511,12 +511,12 @@
 #pragma mark - CCRotateTo
 
 @implementation CCRotateTo
-+(id) actionWithDuration: (ccTime) t angle:(float) a
++(id) actionWithDuration: (ccTime) t angle:(CGFloat) a
 {
 	return [[[self alloc] initWithDuration:t angle:a ] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t angle:(float) a
+-(id) initWithDuration: (ccTime) t angle:(CGFloat) a
 {
 	if( (self=[super initWithDuration: t]) )
 		_dstAngleX = _dstAngleY = a;
@@ -524,12 +524,12 @@
 	return self;
 }
 
-+(id) actionWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY
++(id) actionWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY
 {
 	return [[[self alloc] initWithDuration:t angleX:aX angleY:aY ] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY
+-(id) initWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY
 {
 	if( (self=[super initWithDuration: t]) ){
 		_dstAngleX = aX;
@@ -589,12 +589,12 @@
 #pragma mark - RotateBy
 
 @implementation CCRotateBy
-+(id) actionWithDuration: (ccTime) t angle:(float) a
++(id) actionWithDuration: (ccTime) t angle:(CGFloat) a
 {
 	return [[[self alloc] initWithDuration:t angle:a ] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t angle:(float) a
+-(id) initWithDuration: (ccTime) t angle:(CGFloat) a
 {
 	if( (self=[super initWithDuration: t]) )
 		_angleX = _angleY = a;
@@ -602,12 +602,12 @@
 	return self;
 }
 
-+(id) actionWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY
++(id) actionWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY
 {
 	return [[[self alloc] initWithDuration:t angleX:aX angleY:aY ] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY
+-(id) initWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY
 {
 	if( (self=[super initWithDuration: t]) ){
 		_angleX = aX;
@@ -736,12 +736,12 @@
 #pragma mark - CCSkewTo
 
 @implementation CCSkewTo
-+(id) actionWithDuration:(ccTime)t skewX:(float)sx skewY:(float)sy
++(id) actionWithDuration:(ccTime)t skewX:(CGFloat)sx skewY:(CGFloat)sy
 {
 	return [[[self alloc] initWithDuration: t skewX:sx skewY:sy] autorelease];
 }
 
--(id) initWithDuration:(ccTime)t skewX:(float)sx skewY:(float)sy
+-(id) initWithDuration:(ccTime)t skewX:(CGFloat)sx skewY:(CGFloat)sy
 {
 	if( (self=[super initWithDuration:t]) ) {
 		_endSkewX = sx;
@@ -808,7 +808,7 @@
 
 @implementation CCSkewBy
 
--(id) initWithDuration:(ccTime)t skewX:(float)deltaSkewX skewY:(float)deltaSkewY
+-(id) initWithDuration:(ccTime)t skewX:(CGFloat)deltaSkewX skewY:(CGFloat)deltaSkewY
 {
 	if( (self=[super initWithDuration:t skewX:deltaSkewX skewY:deltaSkewY]) ) {
 		_skewX = deltaSkewX;
@@ -922,7 +922,7 @@
 //	((1 - t) + t)3 = 1
 // Expands to…
 //   (1 - t)3 + 3t(1-t)2 + 3t2(1 - t) + t3 = 1
-static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
+static inline CGFloat bezierat( CGFloat a, CGFloat b, CGFloat c, CGFloat d, ccTime t )
 {
 	return (powf(1-t,3) * a +
 			3*t*(powf(1-t,2))*b +
@@ -1036,12 +1036,12 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 //
 #pragma mark - CCScaleTo
 @implementation CCScaleTo
-+(id) actionWithDuration: (ccTime) t scale:(float) s
++(id) actionWithDuration: (ccTime) t scale:(CGFloat) s
 {
 	return [[[self alloc] initWithDuration: t scale:s] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t scale:(float) s
+-(id) initWithDuration: (ccTime) t scale:(CGFloat) s
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endScaleX = s;
@@ -1050,12 +1050,12 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 	return self;
 }
 
-+(id) actionWithDuration: (ccTime) t scaleX:(float)sx scaleY:(float)sy
++(id) actionWithDuration: (ccTime) t scaleX:(CGFloat)sx scaleY:(CGFloat)sy
 {
 	return [[[self alloc] initWithDuration: t scaleX:sx scaleY:sy] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t scaleX:(float)sx scaleY:(float)sy
+-(id) initWithDuration: (ccTime) t scaleX:(CGFloat)sx scaleY:(CGFloat)sy
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endScaleX = sx;
@@ -1406,7 +1406,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 {
 	NSAssert( anim!=nil, @"Animate: argument Animation must be non-nil");
 	
-	float singleDuration = anim.duration;
+	CGFloat singleDuration = anim.duration;
 
 	if( (self=[super initWithDuration:singleDuration * anim.loops] ) ) {
 
@@ -1417,8 +1417,8 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 		
 		_splitTimes = [[NSMutableArray alloc] initWithCapacity:anim.frames.count];
 		
-		float accumUnitsOfTime = 0;
-		float newUnitOfTimeValue = singleDuration / anim.totalDelayUnits;
+		CGFloat accumUnitsOfTime = 0;
+		CGFloat newUnitOfTimeValue = singleDuration / anim.totalDelayUnits;
 		
 		for( CCAnimationFrame *frame in anim.frames ) {
 

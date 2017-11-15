@@ -90,11 +90,11 @@ typedef struct sCCParticle {
 	ccColor4F	color;
 	ccColor4F	deltaColor;
 
-	float		size;
-	float		deltaSize;
+	CGFloat		size;
+	CGFloat		deltaSize;
 
-	float		rotation;
-	float		deltaRotation;
+	CGFloat		rotation;
+	CGFloat		deltaRotation;
 
 	ccTime		timeToLive;
 
@@ -104,16 +104,16 @@ typedef struct sCCParticle {
 		// Mode A: gravity, direction, radial accel, tangential accel
 		struct {
 			CGPoint		dir;
-			float		radialAccel;
-			float		tangentialAccel;
+			CGFloat		radialAccel;
+			CGFloat		tangentialAccel;
 		} A;
 
 		// Mode B: radius mode
 		struct {
-			float		angle;
-			float		degreesPerSecond;
-			float		radius;
-			float		deltaRadius;
+			CGFloat		angle;
+			CGFloat		degreesPerSecond;
+			CGFloat		radius;
+			CGFloat		deltaRadius;
 		} B;
 	} mode;
 
@@ -171,9 +171,9 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 	// is the particle system active ?
 	BOOL _active;
 	// duration in seconds of the system. -1 is infinity
-	float _duration;
+	CGFloat _duration;
 	// time elapsed since the start of the system (in seconds)
-	float _elapsed;
+	CGFloat _elapsed;
 
 	// position is from "superclass" CocosNode
 	CGPoint _sourcePosition;
@@ -181,9 +181,9 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 	CGPoint _posVar;
 
 	// The angle (direction) of the particles measured in degrees
-	float _angle;
+	CGFloat _angle;
 	// Angle variance measured in degrees;
-	float _angleVar;
+	CGFloat _angleVar;
 
 	// Different modes
 
@@ -195,52 +195,52 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 			CGPoint gravity;
 
 			// The speed the particles will have.
-			float speed;
+			CGFloat speed;
 			// The speed variance
-			float speedVar;
+			CGFloat speedVar;
 
 			// Tangential acceleration
-			float tangentialAccel;
+			CGFloat tangentialAccel;
 			// Tangential acceleration variance
-			float tangentialAccelVar;
+			CGFloat tangentialAccelVar;
 
 			// Radial acceleration
-			float radialAccel;
+			CGFloat radialAccel;
 			// Radial acceleration variance
-			float radialAccelVar;
+			CGFloat radialAccelVar;
 			} A;
 
 		// Mode B: circular movement (gravity, radial accel and tangential accel don't are not used in this mode)
 		struct {
 
 			// The starting radius of the particles
-			float startRadius;
+			CGFloat startRadius;
 			// The starting radius variance of the particles
-			float startRadiusVar;
+			CGFloat startRadiusVar;
 			// The ending radius of the particles
-			float endRadius;
+			CGFloat endRadius;
 			// The ending radius variance of the particles
-			float endRadiusVar;
+			CGFloat endRadiusVar;
 			// Number of degress to rotate a particle around the source pos per second
-			float rotatePerSecond;
+			CGFloat rotatePerSecond;
 			// Variance in degrees for rotatePerSecond
-			float rotatePerSecondVar;
+			CGFloat rotatePerSecondVar;
 		} B;
 	} _mode;
 
 	// start ize of the particles
-	float _startSize;
+	CGFloat _startSize;
 	// start Size variance
-	float _startSizeVar;
+	CGFloat _startSizeVar;
 	// End size of the particle
-	float _endSize;
+	CGFloat _endSize;
 	// end size of variance
-	float _endSizeVar;
+	CGFloat _endSizeVar;
 
 	// How many seconds will the particle live
-	float _life;
+	CGFloat _life;
 	// Life variance
-	float _lifeVar;
+	CGFloat _lifeVar;
 
 	// Start color of the particles
 	ccColor4F _startColor;
@@ -252,13 +252,13 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 	ccColor4F _endColorVar;
 
 	// start angle of the particles
-	float _startSpin;
+	CGFloat _startSpin;
 	// start angle variance
-	float _startSpinVar;
+	CGFloat _startSpinVar;
 	// End angle of the particle
-	float _endSpin;
+	CGFloat _endSpin;
 	// end angle ariance
-	float _endSpinVar;
+	CGFloat _endSpinVar;
 
 	// Array of particles
 	tCCParticle *_particles;
@@ -270,8 +270,8 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
     NSUInteger _allocatedParticles;
 
 	// How many particles can be emitted per second
-	float _emissionRate;
-	float _emitCounter;
+	CGFloat _emissionRate;
+	CGFloat _emitCounter;
 
 	// Texture of the particles
 	CCTexture2D *_texture;
@@ -308,56 +308,56 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 /** Quantity of particles that are being simulated at the moment */
 @property (nonatomic,readonly) NSUInteger	particleCount;
 /** How many seconds the emitter wil run. -1 means 'forever' */
-@property (nonatomic,readwrite,assign) float duration;
+@property (nonatomic,readwrite,assign) CGFloat duration;
 /** sourcePosition of the emitter */
 @property (nonatomic,readwrite,assign) CGPoint sourcePosition;
 /** Position variance of the emitter */
 @property (nonatomic,readwrite,assign) CGPoint posVar;
 /** life, and life variation of each particle */
-@property (nonatomic,readwrite,assign) float life;
+@property (nonatomic,readwrite,assign) CGFloat life;
 /** life variance of each particle */
-@property (nonatomic,readwrite,assign) float lifeVar;
+@property (nonatomic,readwrite,assign) CGFloat lifeVar;
 /** angle and angle variation of each particle */
-@property (nonatomic,readwrite,assign) float angle;
+@property (nonatomic,readwrite,assign) CGFloat angle;
 /** angle variance of each particle */
-@property (nonatomic,readwrite,assign) float angleVar;
+@property (nonatomic,readwrite,assign) CGFloat angleVar;
 
 /** Gravity value. Only available in 'Gravity' mode. */
 @property (nonatomic,readwrite,assign) CGPoint gravity;
 /** speed of each particle. Only available in 'Gravity' mode.  */
-@property (nonatomic,readwrite,assign) float speed;
+@property (nonatomic,readwrite,assign) CGFloat speed;
 /** speed variance of each particle. Only available in 'Gravity' mode. */
-@property (nonatomic,readwrite,assign) float speedVar;
+@property (nonatomic,readwrite,assign) CGFloat speedVar;
 /** tangential acceleration of each particle. Only available in 'Gravity' mode. */
-@property (nonatomic,readwrite,assign) float tangentialAccel;
+@property (nonatomic,readwrite,assign) CGFloat tangentialAccel;
 /** tangential acceleration variance of each particle. Only available in 'Gravity' mode. */
-@property (nonatomic,readwrite,assign) float tangentialAccelVar;
+@property (nonatomic,readwrite,assign) CGFloat tangentialAccelVar;
 /** radial acceleration of each particle. Only available in 'Gravity' mode. */
-@property (nonatomic,readwrite,assign) float radialAccel;
+@property (nonatomic,readwrite,assign) CGFloat radialAccel;
 /** radial acceleration variance of each particle. Only available in 'Gravity' mode. */
-@property (nonatomic,readwrite,assign) float radialAccelVar;
+@property (nonatomic,readwrite,assign) CGFloat radialAccelVar;
 
 /** The starting radius of the particles. Only available in 'Radius' mode. */
-@property (nonatomic,readwrite,assign) float startRadius;
+@property (nonatomic,readwrite,assign) CGFloat startRadius;
 /** The starting radius variance of the particles. Only available in 'Radius' mode. */
-@property (nonatomic,readwrite,assign) float startRadiusVar;
+@property (nonatomic,readwrite,assign) CGFloat startRadiusVar;
 /** The ending radius of the particles. Only available in 'Radius' mode. */
-@property (nonatomic,readwrite,assign) float endRadius;
+@property (nonatomic,readwrite,assign) CGFloat endRadius;
 /** The ending radius variance of the particles. Only available in 'Radius' mode. */
-@property (nonatomic,readwrite,assign) float endRadiusVar;
+@property (nonatomic,readwrite,assign) CGFloat endRadiusVar;
 /** Number of degress to rotate a particle around the source pos per second. Only available in 'Radius' mode. */
-@property (nonatomic,readwrite,assign) float rotatePerSecond;
+@property (nonatomic,readwrite,assign) CGFloat rotatePerSecond;
 /** Variance in degrees for rotatePerSecond. Only available in 'Radius' mode. */
-@property (nonatomic,readwrite,assign) float rotatePerSecondVar;
+@property (nonatomic,readwrite,assign) CGFloat rotatePerSecondVar;
 
 /** start size in pixels of each particle */
-@property (nonatomic,readwrite,assign) float startSize;
+@property (nonatomic,readwrite,assign) CGFloat startSize;
 /** size variance in pixels of each particle */
-@property (nonatomic,readwrite,assign) float startSizeVar;
+@property (nonatomic,readwrite,assign) CGFloat startSizeVar;
 /** end size in pixels of each particle */
-@property (nonatomic,readwrite,assign) float endSize;
+@property (nonatomic,readwrite,assign) CGFloat endSize;
 /** end size variance in pixels of each particle */
-@property (nonatomic,readwrite,assign) float endSizeVar;
+@property (nonatomic,readwrite,assign) CGFloat endSizeVar;
 /** start color of each particle */
 @property (nonatomic,readwrite,assign) ccColor4F startColor;
 /** start color variance of each particle */
@@ -367,15 +367,15 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 /** end color variance of each particle */
 @property (nonatomic,readwrite,assign) ccColor4F endColorVar;
 //* initial angle of each particle
-@property (nonatomic,readwrite,assign) float startSpin;
+@property (nonatomic,readwrite,assign) CGFloat startSpin;
 //* initial angle of each particle
-@property (nonatomic,readwrite,assign) float startSpinVar;
+@property (nonatomic,readwrite,assign) CGFloat startSpinVar;
 //* initial angle of each particle
-@property (nonatomic,readwrite,assign) float endSpin;
+@property (nonatomic,readwrite,assign) CGFloat endSpin;
 //* initial angle of each particle
-@property (nonatomic,readwrite,assign) float endSpinVar;
+@property (nonatomic,readwrite,assign) CGFloat endSpinVar;
 /** emission rate of the particles */
-@property (nonatomic,readwrite,assign) float emissionRate;
+@property (nonatomic,readwrite,assign) CGFloat emissionRate;
 /** maximum particles of the system */
 @property (nonatomic,readwrite,assign) NSUInteger totalParticles;
 /** conforms to CocosNodeTexture protocol */

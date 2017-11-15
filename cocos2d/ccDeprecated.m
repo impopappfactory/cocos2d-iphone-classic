@@ -337,7 +337,7 @@ void ccGLUniformModelViewProjectionMatrix( CCGLProgram* program )
 {
 	return [self animationWithSpriteFrames:arrayOfSpriteFrameNames];
 }
-+(id) animationWithFrames:(NSArray*)arrayOfSpriteFrameNames delay:(float)delay
++(id) animationWithFrames:(NSArray*)arrayOfSpriteFrameNames delay:(CGFloat)delay
 {
 	return [self animationWithSpriteFrames:arrayOfSpriteFrameNames delay:delay];
 }
@@ -345,7 +345,7 @@ void ccGLUniformModelViewProjectionMatrix( CCGLProgram* program )
 {
 	return [self initWithSpriteFrames:arrayOfSpriteFrameNames];
 }
--(id) initWithFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay
+-(id) initWithFrames:(NSArray *)arrayOfSpriteFrameNames delay:(CGFloat)delay
 {
 	return [self initWithSpriteFrames:arrayOfSpriteFrameNames delay:delay];
 }
@@ -562,33 +562,33 @@ void ccGLUniformModelViewProjectionMatrix( CCGLProgram* program )
 @end
 
 @implementation CCWaves3D (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize waves:wav amplitude:amp];
 }
--(id)initWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize waves:wav amplitude:amp];
 }
 @end
 
 @implementation CCLens3D (Deprecated)
-+(id)actionWithPosition:(CGPoint)pos radius:(float)r grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithPosition:(CGPoint)pos radius:(CGFloat)r grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize position:pos radius:r];
 }
--(id)initWithPosition:(CGPoint)pos radius:(float)r grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithPosition:(CGPoint)pos radius:(CGFloat)r grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize position:pos radius:r];
 }
 @end
 
 @implementation CCRipple3D (Deprecated)
-+(id)actionWithPosition:(CGPoint)pos radius:(float)r waves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithPosition:(CGPoint)pos radius:(CGFloat)r waves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize position:pos radius:r waves:wav amplitude:amp];
 }
--(id)initWithPosition:(CGPoint)pos radius:(float)r waves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithPosition:(CGPoint)pos radius:(CGFloat)r waves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize position:pos radius:r waves:wav amplitude:amp];
 }
@@ -606,33 +606,33 @@ void ccGLUniformModelViewProjectionMatrix( CCGLProgram* program )
 @end
 
 @implementation CCLiquid (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize waves:wav amplitude:amp];
 }
--(id)initWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize waves:wav amplitude:amp];
 }
 @end
 
 @implementation CCWaves (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize waves:wav amplitude:amp horizontal:h vertical:v];
 }
--(id)initWithWaves:(int)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize waves:wav amplitude:amp horizontal:h vertical:v];
 }
 @end
 
 @implementation CCTwirl (Deprecated)
-+(id)actionWithPosition:(CGPoint)pos twirls:(int)t amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithPosition:(CGPoint)pos twirls:(int)t amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize position:pos twirls:t amplitude:amp];
 }
--(id)initWithPosition:(CGPoint)pos twirls:(int)t amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithPosition:(CGPoint)pos twirls:(int)t amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize position:pos twirls:t amplitude:amp];
 }
@@ -683,22 +683,22 @@ void ccGLUniformModelViewProjectionMatrix( CCGLProgram* program )
 @end
 
 @implementation CCWavesTiles3D  (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize waves:wav amplitude:amp];
 }
--(id)initWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize waves:wav amplitude:amp];
 }
 @end
 
 @implementation CCJumpTiles3D (Deprecated)
-+(id)actionWithJumps:(int)j amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
++(id)actionWithJumps:(int)j amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self actionWithDuration:d size:gridSize jumps:j amplitude:amp];
 }
--(id)initWithJumps:(int)j amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d
+-(id)initWithJumps:(int)j amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d
 {
 	return [self initWithDuration:d size:gridSize jumps:j amplitude:amp];
 }

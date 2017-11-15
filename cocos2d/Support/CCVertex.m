@@ -26,7 +26,7 @@
 #import "CGPointExtension.h"
 #import "../ccMacros.h"
 
-void ccVertexLineToPolygon(CGPoint *points, float stroke, ccVertex2F *vertices, NSUInteger offset, NSUInteger nuPoints)
+void ccVertexLineToPolygon(CGPoint *points, CGFloat stroke, ccVertex2F *vertices, NSUInteger offset, NSUInteger nuPoints)
 {
     nuPoints += offset;
     if(nuPoints<=1) return;
@@ -55,7 +55,7 @@ void ccVertexLineToPolygon(CGPoint *points, float stroke, ccVertex2F *vertices, 
             CGPoint p0p1 = ccpNormalize(ccpSub(p0, p1));
 
             // Calculate angle between vectors
-            float angle = acosf(ccpDot(p2p1, p0p1));
+            CGFloat angle = acosf(ccpDot(p2p1, p0p1));
 
             if(angle < CC_DEGREES_TO_RADIANS(70))
                 perpVector = ccpPerp(ccpNormalize(ccpMidpoint(p2p1, p0p1)));
@@ -82,7 +82,7 @@ void ccVertexLineToPolygon(CGPoint *points, float stroke, ccVertex2F *vertices, 
         ccVertex2F p3 = vertices[idx1];
         ccVertex2F p4 = vertices[idx1+1];
 
-        float s;
+        CGFloat s;
         //BOOL fixVertex = !ccpLineIntersect(ccp(p1.x, p1.y), ccp(p4.x, p4.y), ccp(p2.x, p2.y), ccp(p3.x, p3.y), &s, &t);
         BOOL fixVertex = !ccVertexLineIntersect(p1.x, p1.y, p4.x, p4.y, p2.x, p2.y, p3.x, p3.y, &s);
         if(!fixVertex)
@@ -97,12 +97,12 @@ void ccVertexLineToPolygon(CGPoint *points, float stroke, ccVertex2F *vertices, 
     }
 }
 
-BOOL ccVertexLineIntersect(float Ax, float Ay,
-                               float Bx, float By,
-                               float Cx, float Cy,
-                               float Dx, float Dy, float *T)
+BOOL ccVertexLineIntersect(CGFloat Ax, CGFloat Ay,
+                               CGFloat Bx, CGFloat By,
+                               CGFloat Cx, CGFloat Cy,
+                               CGFloat Dx, CGFloat Dy, CGFloat *T)
 {
-    float  distAB, theCos, theSin, newX;
+    CGFloat  distAB, theCos, theSin, newX;
 
     // FAIL: Line undefined
     if ((Ax==Bx && Ay==By) || (Cx==Dx && Cy==Dy)) return NO;

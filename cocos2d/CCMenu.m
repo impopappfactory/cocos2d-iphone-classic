@@ -335,15 +335,15 @@ enum {
 {
 	[self alignItemsVerticallyWithPadding:kDefaultPadding];
 }
--(void) alignItemsVerticallyWithPadding:(float)padding
+-(void) alignItemsVerticallyWithPadding:(CGFloat)padding
 {
-	float height = -padding;
+	CGFloat height = -padding;
 
 	CCMenuItem *item;
 	CCARRAY_FOREACH(_children, item)
 	    height += item.contentSize.height * item.scaleY + padding;
 
-	float y = height / 2.0f;
+	CGFloat y = height / 2.0f;
 
 	CCARRAY_FOREACH(_children, item) {
 		CGSize itemSize = item.contentSize;
@@ -357,15 +357,15 @@ enum {
 	[self alignItemsHorizontallyWithPadding:kDefaultPadding];
 }
 
--(void) alignItemsHorizontallyWithPadding:(float)padding
+-(void) alignItemsHorizontallyWithPadding:(CGFloat)padding
 {
 
-	float width = -padding;
+	CGFloat width = -padding;
 	CCMenuItem *item;
 	CCARRAY_FOREACH(_children, item)
 	    width += item.contentSize.width * item.scaleX + padding;
 
-	float x = -width / 2.0f;
+	CGFloat x = -width / 2.0f;
 
 	CCARRAY_FOREACH(_children, item){
 		CGSize itemSize = item.contentSize;
@@ -425,7 +425,7 @@ enum {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
 	row = 0; rowHeight = 0; rowColumns = 0;
-	float w, x, y = height / 2;
+	CGFloat w, x, y = height / 2;
 	CCARRAY_FOREACH(_children, item) {
 		if(rowColumns == 0) {
 			rowColumns = [(NSNumber *) [rows objectAtIndex:row] unsignedIntegerValue];
@@ -511,7 +511,7 @@ enum {
 	CGSize winSize = [[CCDirector sharedDirector] winSize];
 	
 	column = 0; columnWidth = 0; columnRows = 0;
-	float x = -width / 2, y;
+	CGFloat x = -width / 2, y;
 	
 	CCARRAY_FOREACH(_children, item){
 		if(columnRows == 0) {

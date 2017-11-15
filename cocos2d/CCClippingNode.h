@@ -45,7 +45,7 @@
 
 /** The alpha threshold.
  The content is drawn only where the stencil have pixel with alpha greater than the alphaThreshold.
- Should be a float between 0 and 1.
+ Should be a CGFloat between 0 and 1.
  This default to 1 (so alpha test is disabled).
  */
 @property (nonatomic) GLfloat alphaThreshold;

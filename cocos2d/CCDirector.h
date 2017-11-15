@@ -239,7 +239,7 @@ and when to execute the Scenes.
 -(CGPoint) convertToUI:(CGPoint)p;
 
 /// XXX: missing description
--(float) getZEye;
+-(CGFloat) getZEye;
 
 #pragma mark Director - Scene Management
 

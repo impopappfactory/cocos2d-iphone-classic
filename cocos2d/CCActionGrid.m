@@ -215,7 +215,7 @@
 
 -(void) update: (ccTime) time
 {
-	float f = time*2;
+	CGFloat f = time*2;
 
 	if (f > 1)
 	{

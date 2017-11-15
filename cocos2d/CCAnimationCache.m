@@ -182,7 +182,7 @@ static CCAnimationCache *_sharedAnimationCache=nil;
 				continue;
 			}
 
-			float delayUnits = [[entry objectForKey:@"delayUnits"] floatValue];
+			CGFloat delayUnits = [[entry objectForKey:@"delayUnits"] floatValue];
 			NSDictionary *userInfo = [entry objectForKey:@"notification"];
 			
 			CCAnimationFrame *animFrame = [[CCAnimationFrame alloc] initWithSpriteFrame:spriteFrame delayUnits:delayUnits userInfo:userInfo];
@@ -191,7 +191,7 @@ static CCAnimationCache *_sharedAnimationCache=nil;
 			[animFrame release];
 		}
 		
-		float delayPerUnit = [[animationDict objectForKey:@"delayPerUnit"] floatValue];
+		CGFloat delayPerUnit = [[animationDict objectForKey:@"delayPerUnit"] floatValue];
 		CCAnimation *animation = [[CCAnimation alloc] initWithAnimationFrames:array delayPerUnit:delayPerUnit loops:(loops?[loops intValue]:1)];
 		[array release];
 		

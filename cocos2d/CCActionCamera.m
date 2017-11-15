@@ -51,7 +51,7 @@
 @end
 
 @implementation CCOrbitCamera
-+(id) actionWithDuration:(float)t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx
++(id) actionWithDuration:(CGFloat)t radius:(CGFloat)r deltaRadius:(CGFloat) dr angleZ:(CGFloat)z deltaAngleZ:(CGFloat)dz angleX:(CGFloat)x deltaAngleX:(CGFloat)dx
 {
 	return [[[self alloc] initWithDuration:t radius:r deltaRadius:dr angleZ:z deltaAngleZ:dz angleX:x deltaAngleX:dx] autorelease];
 }
@@ -62,7 +62,7 @@
 }
 
 
--(id) initWithDuration:(float)t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx
+-(id) initWithDuration:(CGFloat)t radius:(CGFloat)r deltaRadius:(CGFloat) dr angleZ:(CGFloat)z deltaAngleZ:(CGFloat)dz angleX:(CGFloat)x deltaAngleX:(CGFloat)dx
 {
 	if((self=[super initWithDuration:t]) ) {
 
@@ -83,7 +83,7 @@
 -(void) startWithTarget:(id)aTarget
 {
 	[super startWithTarget:aTarget];
-	float r, zenith, azimuth;
+	CGFloat r, zenith, azimuth;
 
 	[self sphericalRadius: &r zenith:&zenith azimuth:&azimuth];
 
@@ -104,22 +104,22 @@
 
 -(void) update: (ccTime) dt
 {
-	float r = (_radius + _deltaRadius * dt) *[CCCamera getZEye];
-	float za = _radZ + _radDeltaZ * dt;
-	float xa = _radX + _radDeltaX * dt;
+	CGFloat r = (_radius + _deltaRadius * dt) *[CCCamera getZEye];
+	CGFloat za = _radZ + _radDeltaZ * dt;
+	CGFloat xa = _radX + _radDeltaX * dt;
 
-	float i = sinf(za) * cosf(xa) * r + _centerXOrig;
-	float j = sinf(za) * sinf(xa) * r + _centerYOrig;
-	float k = cosf(za) * r + _centerZOrig;
+	CGFloat i = sinf(za) * cosf(xa) * r + _centerXOrig;
+	CGFloat j = sinf(za) * sinf(xa) * r + _centerYOrig;
+	CGFloat k = cosf(za) * r + _centerZOrig;
 
 	[[_target camera] setEyeX:i eyeY:j eyeZ:k];
 }
 
--(void) sphericalRadius:(float*) newRadius zenith:(float*) zenith azimuth:(float*) azimuth
+-(void) sphericalRadius:(CGFloat*) newRadius zenith:(CGFloat*) zenith azimuth:(CGFloat*) azimuth
 {
-	float ex, ey, ez, cx, cy, cz, x, y, z;
-	float r; // radius
-	float s;
+	CGFloat ex, ey, ez, cx, cy, cz, x, y, z;
+	CGFloat r; // radius
+	CGFloat s;
 
 	CCCamera *camera = [_target camera];
 	[camera eyeX:&ex eyeY:&ey eyeZ:&ez];
@@ -138,7 +138,7 @@
 
 	*zenith = acosf( z/r);
 	if( x < 0 )
-		*azimuth = (float)M_PI - asinf(y/s);
+		*azimuth = (CGFloat)M_PI - asinf(y/s);
 	else
 		*azimuth = asinf(y/s);
 

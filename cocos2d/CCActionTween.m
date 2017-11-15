@@ -28,12 +28,12 @@
 
 @implementation CCActionTween
 
-+ (id)actionWithDuration:(ccTime)aDuration key:(NSString *)aKey from:(float)aFrom to:(float)aTo {
++ (id)actionWithDuration:(ccTime)aDuration key:(NSString *)aKey from:(CGFloat)aFrom to:(CGFloat)aTo {
 
 	return [[[[self class] alloc] initWithDuration:aDuration key:aKey from:aFrom to:aTo] autorelease];
 }
 
-- (id)initWithDuration:(ccTime)aDuration key:(NSString *)key from:(float)from to:(float)to {
+- (id)initWithDuration:(ccTime)aDuration key:(NSString *)key from:(CGFloat)from to:(CGFloat)to {
 
 	if ((self = [super initWithDuration:aDuration])) {
 

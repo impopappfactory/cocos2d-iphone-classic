@@ -134,41 +134,41 @@ Example:
 */
 @interface CCRotateTo : CCActionInterval <NSCopying>
 {
-	float _dstAngleX;
-	float _startAngleX;
-	float _diffAngleX;
+	CGFloat _dstAngleX;
+	CGFloat _startAngleX;
+	CGFloat _diffAngleX;
   
-	float _dstAngleY;
-	float _startAngleY;
-	float _diffAngleY;
+	CGFloat _dstAngleY;
+	CGFloat _startAngleY;
+	CGFloat _diffAngleY;
 }
 /** creates the action */
-+(id) actionWithDuration:(ccTime)duration angle:(float)angle;
++(id) actionWithDuration:(ccTime)duration angle:(CGFloat)angle;
 /** initializes the action */
--(id) initWithDuration:(ccTime)duration angle:(float)angle;
+-(id) initWithDuration:(ccTime)duration angle:(CGFloat)angle;
 
 /** creates the action with separate rotation angles */
-+(id) actionWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY;
--(id) initWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY;
++(id) actionWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY;
+-(id) initWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY;
 @end
 
 /** Rotates a CCNode object clockwise a number of degrees by modifying its rotation attribute.
 */
 @interface CCRotateBy : CCActionInterval <NSCopying>
 {
-	float _angleX;
-	float _startAngleX;
-	float _angleY;
-	float _startAngleY;
+	CGFloat _angleX;
+	CGFloat _startAngleX;
+	CGFloat _angleY;
+	CGFloat _startAngleY;
 }
 /** creates the action */
-+(id) actionWithDuration:(ccTime)duration angle:(float)deltaAngle;
++(id) actionWithDuration:(ccTime)duration angle:(CGFloat)deltaAngle;
 /** initializes the action */
--(id) initWithDuration:(ccTime)duration angle:(float)deltaAngle;
+-(id) initWithDuration:(ccTime)duration angle:(CGFloat)deltaAngle;
 
 /** creates the action with separate rotation angles */
-+(id) actionWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY;
--(id) initWithDuration: (ccTime) t angleX:(float) aX angleY:(float) aY;
++(id) actionWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY;
+-(id) initWithDuration: (ccTime) t angleX:(CGFloat) aX angleY:(CGFloat) aY;
 @end
 
 /**  Moves a CCNode object x,y pixels by modifying it's position attribute.
@@ -209,19 +209,19 @@ Example:
  */
 @interface CCSkewTo : CCActionInterval <NSCopying>
 {
-	float _skewX;
-	float _skewY;
-	float _startSkewX;
-	float _startSkewY;
-	float _endSkewX;
-	float _endSkewY;
-	float _deltaX;
-	float _deltaY;
+	CGFloat _skewX;
+	CGFloat _skewY;
+	CGFloat _startSkewX;
+	CGFloat _startSkewY;
+	CGFloat _endSkewX;
+	CGFloat _endSkewY;
+	CGFloat _deltaX;
+	CGFloat _deltaY;
 }
 /** creates the action */
-+(id) actionWithDuration:(ccTime)t skewX:(float)sx skewY:(float)sy;
++(id) actionWithDuration:(ccTime)t skewX:(CGFloat)sx skewY:(CGFloat)sy;
 /** initializes the action with duration, skew X and skew Y */
--(id) initWithDuration:(ccTime)t skewX:(float)sx skewY:(float)sy;
+-(id) initWithDuration:(ccTime)t skewX:(CGFloat)sx skewY:(CGFloat)sy;
 @end
 
 /** Skews a CCNode object by skewX and skewY degrees
@@ -231,7 +231,7 @@ Example:
 {
 }
 /** initializes the action with duration, skew X and skew Y */
--(id) initWithDuration:(ccTime)t skewX:(float)sx skewY:(float)sy;
+-(id) initWithDuration:(ccTime)t skewX:(CGFloat)sx skewY:(CGFloat)sy;
 @end
 
 /** Moves a CCNode object simulating a parabolic jump movement by modifying its position attribute.
@@ -302,23 +302,23 @@ typedef struct _ccBezierConfig {
  */
 @interface CCScaleTo : CCActionInterval <NSCopying>
 {
-	float _scaleX;
-	float _scaleY;
-	float _startScaleX;
-	float _startScaleY;
-	float _endScaleX;
-	float _endScaleY;
-	float _deltaX;
-	float _deltaY;
+	CGFloat _scaleX;
+	CGFloat _scaleY;
+	CGFloat _startScaleX;
+	CGFloat _startScaleY;
+	CGFloat _endScaleX;
+	CGFloat _endScaleY;
+	CGFloat _deltaX;
+	CGFloat _deltaY;
 }
 /** creates the action with the same scale factor for X and Y */
-+(id) actionWithDuration: (ccTime)duration scale:(float) s;
++(id) actionWithDuration: (ccTime)duration scale:(CGFloat) s;
 /** initializes the action with the same scale factor for X and Y */
--(id) initWithDuration: (ccTime)duration scale:(float) s;
+-(id) initWithDuration: (ccTime)duration scale:(CGFloat) s;
 /** creates the action with and X factor and a Y factor */
-+(id) actionWithDuration: (ccTime)duration scaleX:(float) sx scaleY:(float)sy;
++(id) actionWithDuration: (ccTime)duration scaleX:(CGFloat) sx scaleY:(CGFloat)sy;
 /** initializes the action with and X factor and a Y factor */
--(id) initWithDuration: (ccTime)duration scaleX:(float) sx scaleY:(float)sy;
+-(id) initWithDuration: (ccTime)duration scaleX:(CGFloat) sx scaleY:(CGFloat)sy;
 @end
 
 /** Scales a CCNode object a zoom factor by modifying its scale attribute.

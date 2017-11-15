@@ -251,9 +251,9 @@ DEPRECATED_ATTRIBUTE @interface MacView : CCGLView
 
 @interface CCAnimation (Deprecated)
 +(id) animationWithFrames:(NSArray*)arrayOfSpriteFrameNames DEPRECATED_ATTRIBUTE;
-+(id) animationWithFrames:(NSArray*)arrayOfSpriteFrameNames delay:(float)delay DEPRECATED_ATTRIBUTE;
++(id) animationWithFrames:(NSArray*)arrayOfSpriteFrameNames delay:(CGFloat)delay DEPRECATED_ATTRIBUTE;
 -(id) initWithFrames:(NSArray*)arrayOfSpriteFrameNames DEPRECATED_ATTRIBUTE;
--(id) initWithFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay DEPRECATED_ATTRIBUTE;
+-(id) initWithFrames:(NSArray *)arrayOfSpriteFrameNames delay:(CGFloat)delay DEPRECATED_ATTRIBUTE;
 -(void) addFrame:(CCSpriteFrame*)frame DEPRECATED_ATTRIBUTE;
 -(void) addFrameWithFilename:(NSString*)filename DEPRECATED_ATTRIBUTE;
 -(void) addFrameWithTexture:(CCTexture2D*)texture rect:(CGRect)rect DEPRECATED_ATTRIBUTE;
@@ -353,18 +353,18 @@ DEPRECATED_ATTRIBUTE @interface MacView : CCGLView
 @end
 
 @interface CCWaves3D (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCLens3D (Deprecated)
-+(id)actionWithPosition:(CGPoint)pos radius:(float)r grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithPosition:(CGPoint)pos radius:(float)r grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithPosition:(CGPoint)pos radius:(CGFloat)r grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithPosition:(CGPoint)pos radius:(CGFloat)r grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCRipple3D (Deprecated)
-+(id)actionWithPosition:(CGPoint)pos radius:(float)r waves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithPosition:(CGPoint)pos radius:(float)r waves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithPosition:(CGPoint)pos radius:(CGFloat)r waves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithPosition:(CGPoint)pos radius:(CGFloat)r waves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCShaky3D (Deprecated)
@@ -373,18 +373,18 @@ DEPRECATED_ATTRIBUTE @interface MacView : CCGLView
 @end
 
 @interface CCLiquid (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCWaves (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithWaves:(int)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCTwirl (Deprecated)
-+(id)actionWithPosition:(CGPoint)pos twirls:(int)t amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithPosition:(CGPoint)pos twirls:(int)t amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithPosition:(CGPoint)pos twirls:(int)t amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithPosition:(CGPoint)pos twirls:(int)t amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCShakyTiles3D (Deprecated)
@@ -408,13 +408,13 @@ DEPRECATED_ATTRIBUTE @interface MacView : CCGLView
 @end
 
 @interface CCWavesTiles3D  (Deprecated)
-+(id)actionWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithWaves:(int)wav amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithWaves:(int)wav amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCJumpTiles3D (Deprecated)
-+(id)actionWithJumps:(int)j amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
--(id)initWithJumps:(int)j amplitude:(float)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
++(id)actionWithJumps:(int)j amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
+-(id)initWithJumps:(int)j amplitude:(CGFloat)amp grid:(CGSize)gridSize duration:(ccTime)d DEPRECATED_ATTRIBUTE;
 @end
 
 @interface CCSplitRows (Deprecated)

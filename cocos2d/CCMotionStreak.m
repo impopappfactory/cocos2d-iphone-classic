@@ -39,17 +39,17 @@
 @synthesize blendFunc = _blendFunc;
 @synthesize fastMode = _fastMode;
 
-+ (id) streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color textureFilename:(NSString*)path
++ (id) streakWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color textureFilename:(NSString*)path
 {
     return [[[self alloc] initWithFade:fade minSeg:minSeg width:stroke color:color textureFilename:path] autorelease];
 }
 
-+ (id) streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture
++ (id) streakWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture
 {
     return [[[self alloc] initWithFade:fade minSeg:minSeg width:stroke color:color texture:texture] autorelease];
 }
 
-- (id) initWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color textureFilename:(NSString*)path
+- (id) initWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color textureFilename:(NSString*)path
 {
     NSAssert(path != nil, @"Invalid filename");
 
@@ -57,7 +57,7 @@
     return [self initWithFade:fade minSeg:minSeg width:stroke color:color texture:texture];
 }
 
-- (id) initWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture
+- (id) initWithFade:(CGFloat)fade minSeg:(CGFloat)minSeg width:(CGFloat)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture
 {
     self = [super init];
     if (self)
@@ -77,7 +77,7 @@
 
         _maxPoints = (int)(fade*60.0f)+2;
         _nuPoints = _previousNuPoints = 0;
-        _pointState = malloc(sizeof(float) * _maxPoints);
+        _pointState = malloc(sizeof(CGFloat) * _maxPoints);
         _pointVertexes = malloc(sizeof(CGPoint) * _maxPoints);
 
         _vertices = malloc(sizeof(ccVertex2F) * _maxPoints * 2);
@@ -228,7 +228,7 @@
 	
 	// Updated Tex Coords only if they are different than previous step
 	if( _nuPoints  && _previousNuPoints != _nuPoints ) {
-		float texDelta = 1.0f / _nuPoints;
+		CGFloat texDelta = 1.0f / _nuPoints;
 		for( i=0; i < _nuPoints; i++ ) {
 			_texCoords[i*2] = (ccTex2F) {0, texDelta*i};
 			_texCoords[i*2+1] = (ccTex2F) {1, texDelta*i};

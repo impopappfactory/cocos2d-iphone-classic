@@ -206,7 +206,7 @@ float	__ccContentScaleFactor = 1;
 
 		case kCCDirectorProjection3D:
 		{
-			float zeye = [self getZEye];
+			CGFloat zeye = [self getZEye];
 
 			kmMat4 matrixPerspective, matrixLookup;
 
@@ -320,7 +320,7 @@ float	__ccContentScaleFactor = 1;
 	if ([[UIScreen mainScreen] scale] == 1.0)
 		return NO;
 
-	float newScale = enabled ? 2 : 1;
+	CGFloat newScale = enabled ? 2 : 1;
 	[self setContentScaleFactor:newScale];
 
 	// Load Hi-Res FPS label

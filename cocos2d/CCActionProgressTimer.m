@@ -29,12 +29,12 @@
 #define kProgressTimerCast CCProgressTimer*
 
 @implementation CCProgressTo
-+(id) actionWithDuration: (ccTime) t percent: (float) v
++(id) actionWithDuration: (ccTime) t percent: (CGFloat) v
 {
 	return [[[ self alloc] initWithDuration: t percent: v] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t percent: (float) v
+-(id) initWithDuration: (ccTime) t percent: (CGFloat) v
 {
 	if( (self=[super initWithDuration: t] ) )
 		_to = v;
@@ -66,12 +66,12 @@
 @end
 
 @implementation CCProgressFromTo
-+(id) actionWithDuration: (ccTime) t from:(float)fromPercentage to:(float) toPercentage
++(id) actionWithDuration: (ccTime) t from:(CGFloat)fromPercentage to:(CGFloat) toPercentage
 {
 	return [[[self alloc] initWithDuration: t from: fromPercentage to: toPercentage] autorelease];
 }
 
--(id) initWithDuration: (ccTime) t from:(float)fromPercentage to:(float) toPercentage
+-(id) initWithDuration: (ccTime) t from:(CGFloat)fromPercentage to:(CGFloat) toPercentage
 {
 	if( (self=[super initWithDuration: t] ) ){
 		_to = toPercentage;

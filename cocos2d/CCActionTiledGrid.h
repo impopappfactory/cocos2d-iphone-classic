@@ -85,7 +85,7 @@
 {
 }
 // XXX: private, but added to make BridgeSupport happy
--(float)testFunc:(CGSize)pos time:(ccTime)time;
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time;
 @end
 
 ////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@
 {
 }
 // XXX: private, but added to make BridgeSupport happy
--(float)testFunc:(CGSize)pos time:(ccTime)time;
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time;
 @end
 
 ////////////////////////////////////////////////////////////
@@ -109,7 +109,7 @@
 {
 }
 // XXX: private, but added to make BridgeSupport happy
--(float)testFunc:(CGSize)pos time:(ccTime)time;
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time;
 @end
 
 ////////////////////////////////////////////////////////////
@@ -121,7 +121,7 @@
 {
 }
 // XXX: private, but added to make BridgeSupport happy
--(float)testFunc:(CGSize)pos time:(ccTime)time;
+-(CGFloat)testFunc:(CGSize)pos time:(ccTime)time;
 @end
 
 ////////////////////////////////////////////////////////////
@@ -148,19 +148,19 @@
 @interface CCWavesTiles3D : CCTiledGrid3DAction
 {
 	NSUInteger _waves;
-	float _amplitude;
-	float _amplitudeRate;
+	CGFloat _amplitude;
+	CGFloat _amplitudeRate;
 }
 
 /** waves amplitude */
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** waves amplitude rate */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** creates the action with a number of waves, the waves amplitude, the grid size and the duration */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp;
 /** initializes the action with a number of waves, the waves amplitude, the grid size and the duration */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp;
 
 @end
 
@@ -172,19 +172,19 @@
 @interface CCJumpTiles3D : CCTiledGrid3DAction
 {
 	NSUInteger _jumps;
-	float _amplitude;
-	float _amplitudeRate;
+	CGFloat _amplitude;
+	CGFloat _amplitudeRate;
 }
 
 /** amplitude of the sin*/
-@property (nonatomic,readwrite) float amplitude;
+@property (nonatomic,readwrite) CGFloat amplitude;
 /** amplitude rate */
-@property (nonatomic,readwrite) float amplitudeRate;
+@property (nonatomic,readwrite) CGFloat amplitudeRate;
 
 /** creates the action with the number of jumps, the sin amplitude, the grid size and the duration */
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(float)amplitude;
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(CGFloat)amplitude;
 /** initializes the action with the number of jumps, the sin amplitude, the grid size and the duration */
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(float)amplitude;
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize jumps:(NSUInteger)numberOfJumps amplitude:(CGFloat)amplitude;
 
 @end
 

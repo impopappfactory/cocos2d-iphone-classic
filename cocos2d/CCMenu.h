@@ -71,14 +71,14 @@ enum {
 /** align items vertically with padding
  @since v0.7.2
  */
--(void) alignItemsVerticallyWithPadding:(float) padding;
+-(void) alignItemsVerticallyWithPadding:(CGFloat) padding;
 
 /** align items horizontally */
 -(void) alignItemsHorizontally;
 /** align items horizontally with padding
  @since v0.7.2
  */
--(void) alignItemsHorizontallyWithPadding: (float) padding;
+-(void) alignItemsHorizontallyWithPadding: (CGFloat) padding;
 
 /** align items in rows of columns */
 -(void) alignItemsInColumns: (NSNumber *) columns, ... NS_REQUIRES_NIL_TERMINATION;

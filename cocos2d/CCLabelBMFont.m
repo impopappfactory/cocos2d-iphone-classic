@@ -454,12 +454,12 @@ void FNTConfigRemoveCache( void )
 	return [[[self alloc] initWithString:string fntFile:fntFile width:kCCLabelAutomaticWidth alignment:kCCTextAlignmentLeft imageOffset:CGPointZero] autorelease];
 }
 
-+(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment
++(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment
 {
     return [[[self alloc] initWithString:string fntFile:fntFile width:width alignment:alignment imageOffset:CGPointZero] autorelease];
 }
 
-+(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset
++(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset
 {
     return [[[self alloc] initWithString:string fntFile:fntFile width:width alignment:alignment imageOffset:offset] autorelease];
 }
@@ -474,13 +474,13 @@ void FNTConfigRemoveCache( void )
     return [self initWithString:theString fntFile:fntFile width:kCCLabelAutomaticWidth alignment:kCCTextAlignmentLeft];
 }
 
--(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment
+-(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment
 {
 	return [self initWithString:theString fntFile:fntFile width:width alignment:alignment imageOffset:CGPointZero];
 }
 
 // designated initializer
--(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset
+-(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(CGFloat)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset
 {
 	NSAssert(!_configuration, @"re-init is no longer supported");
 	
@@ -555,7 +555,7 @@ void FNTConfigRemoveCache( void )
         NSString *multilineString = @"", *lastWord = @"";
         int line = 1, i = 0;
         NSUInteger stringLength = [self.string length];
-        float startOfLine = -1, startOfWord = -1;
+        CGFloat startOfLine = -1, startOfWord = -1;
         int skip = 0;
         //Go through each character and insert line breaks as necessary
         for (int j = 0; j < [_children count]; j++) {
@@ -661,7 +661,7 @@ void FNTConfigRemoveCache( void )
             lineWidth = lastChar.position.x + lastChar.contentSize.width/2;
 			
             //Figure out how much to shift each character in this line horizontally
-            float shift = 0;
+            CGFloat shift = 0;
             switch (self.alignment) {
                 case kCCTextAlignmentCenter:
                     shift = self.contentSize.width/2 - lineWidth/2;
@@ -973,7 +973,7 @@ void FNTConfigRemoveCache( void )
 }
 
 #pragma mark LabelBMFont - Alignment
-- (void)setWidth:(float)width {
+- (void)setWidth:(CGFloat)width {
     _width = width;
     [self updateLabel];
 }

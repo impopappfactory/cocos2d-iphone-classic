@@ -62,12 +62,12 @@ ccpToAngle(const CGPoint v)
 	return atan2f(v.y, v.x);
 }
 
-CGPoint ccpLerp(CGPoint a, CGPoint b, float alpha)
+CGPoint ccpLerp(CGPoint a, CGPoint b, CGFloat alpha)
 {
 	return ccpAdd(ccpMult(a, 1.f - alpha), ccpMult(b, alpha));
 }
 
-float clampf(float value, float min_inclusive, float max_inclusive)
+CGFloat clampf(CGFloat value, CGFloat min_inclusive, CGFloat max_inclusive)
 {
 	if (min_inclusive > max_inclusive) {
 		CC_SWAP(min_inclusive,max_inclusive);
@@ -85,12 +85,12 @@ CGPoint ccpFromSize(CGSize s)
 	return ccp(s.width, s.height);
 }
 
-CGPoint ccpCompOp(CGPoint p, float (*opFunc)(float))
+CGPoint ccpCompOp(CGPoint p, CGFloat (*opFunc)(CGFloat))
 {
 	return ccp(opFunc(p.x), opFunc(p.y));
 }
 
-BOOL ccpFuzzyEqual(CGPoint a, CGPoint b, float var)
+BOOL ccpFuzzyEqual(CGPoint a, CGPoint b, CGFloat var)
 {
 	if(a.x - var <= b.x && b.x <= a.x + var)
 		if(a.y - var <= b.y && b.y <= a.y + var)
@@ -103,20 +103,20 @@ CGPoint ccpCompMult(CGPoint a, CGPoint b)
 	return ccp(a.x * b.x, a.y * b.y);
 }
 
-float ccpAngleSigned(CGPoint a, CGPoint b)
+CGFloat ccpAngleSigned(CGPoint a, CGPoint b)
 {
 	CGPoint a2 = ccpNormalize(a);
 	CGPoint b2 = ccpNormalize(b);
-	float angle = atan2f(a2.x * b2.y - a2.y * b2.x, ccpDot(a2, b2));
+	CGFloat angle = atan2f(a2.x * b2.y - a2.y * b2.x, ccpDot(a2, b2));
 	if( fabs(angle) < kCGPointEpsilon ) return 0.f;
 	return angle;
 }
 
-CGPoint ccpRotateByAngle(CGPoint v, CGPoint pivot, float angle)
+CGPoint ccpRotateByAngle(CGPoint v, CGPoint pivot, CGFloat angle)
 {
 	CGPoint r = ccpSub(v, pivot);
-	float cosa = cosf(angle), sina = sinf(angle);
-	float t = r.x;
+	CGFloat cosa = cosf(angle), sina = sinf(angle);
+	CGFloat t = r.x;
 	r.x = t*cosa - r.y*sina + pivot.x;
 	r.y = t*sina + r.y*cosa + pivot.y;
 	return r;
@@ -125,7 +125,7 @@ CGPoint ccpRotateByAngle(CGPoint v, CGPoint pivot, float angle)
 
 BOOL ccpSegmentIntersect(CGPoint A, CGPoint B, CGPoint C, CGPoint D)
 {
-	float S, T;
+	CGFloat S, T;
 
 	if( ccpLineIntersect(A, B, C, D, &S, &T )
 	   && (S >= 0.0f && S <= 1.0f && T >= 0.0f && T <= 1.0f) )
@@ -136,7 +136,7 @@ BOOL ccpSegmentIntersect(CGPoint A, CGPoint B, CGPoint C, CGPoint D)
 
 CGPoint ccpIntersectPoint(CGPoint A, CGPoint B, CGPoint C, CGPoint D)
 {
-	float S, T;
+	CGFloat S, T;
 
 	if( ccpLineIntersect(A, B, C, D, &S, &T) ) {
 		// Point of intersection
@@ -151,19 +151,19 @@ CGPoint ccpIntersectPoint(CGPoint A, CGPoint B, CGPoint C, CGPoint D)
 
 BOOL ccpLineIntersect(CGPoint A, CGPoint B,
 					  CGPoint C, CGPoint D,
-					  float *S, float *T)
+					  CGFloat *S, CGFloat *T)
 {
 	// FAIL: Line undefined
 	if ( (A.x==B.x && A.y==B.y) || (C.x==D.x && C.y==D.y) ) return NO;
 
-	const float BAx = B.x - A.x;
-	const float BAy = B.y - A.y;
-	const float DCx = D.x - C.x;
-	const float DCy = D.y - C.y;
-	const float ACx = A.x - C.x;
-	const float ACy = A.y - C.y;
+	const CGFloat BAx = B.x - A.x;
+	const CGFloat BAy = B.y - A.y;
+	const CGFloat DCx = D.x - C.x;
+	const CGFloat DCy = D.y - C.y;
+	const CGFloat ACx = A.x - C.x;
+	const CGFloat ACy = A.y - C.y;
 
-	const float denom = DCy*BAx - DCx*BAy;
+	const CGFloat denom = DCy*BAx - DCx*BAy;
 
 	*S = DCx*ACy - DCy*ACx;
 	*T = BAx*ACy - BAy*ACx;
@@ -188,9 +188,9 @@ BOOL ccpLineIntersect(CGPoint A, CGPoint B,
 	return YES;
 }
 
-float ccpAngle(CGPoint a, CGPoint b)
+CGFloat ccpAngle(CGPoint a, CGPoint b)
 {
-	float angle = acosf(ccpDot(ccpNormalize(a), ccpNormalize(b)));
+	CGFloat angle = acosf(ccpDot(ccpNormalize(a), ccpNormalize(b)));
 	if( fabs(angle) < kCGPointEpsilon ) return 0.f;
 	return angle;
 }

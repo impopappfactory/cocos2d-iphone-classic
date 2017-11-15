@@ -90,14 +90,14 @@
 
 }
 
-+(float) getZEye
++(CGFloat) getZEye
 {
 	return FLT_EPSILON;
 	//	CGSize s = [[CCDirector sharedDirector] displaySize];
 	//	return ( s.height / 1.1566f );
 }
 
--(void) setEyeX: (float)x eyeY:(float)y eyeZ:(float)z
+-(void) setEyeX: (CGFloat)x eyeY:(CGFloat)y eyeZ:(CGFloat)z
 {
 	_eyeX = x;
 	_eyeY = y;
@@ -106,7 +106,7 @@
 	_dirty = YES;
 }
 
--(void) setCenterX: (float)x centerY:(float)y centerZ:(float)z
+-(void) setCenterX: (CGFloat)x centerY:(CGFloat)y centerZ:(CGFloat)z
 {
 	_centerX = x;
 	_centerY = y;
@@ -115,7 +115,7 @@
 	_dirty = YES;
 }
 
--(void) setUpX: (float)x upY:(float)y upZ:(float)z
+-(void) setUpX: (CGFloat)x upY:(CGFloat)y upZ:(CGFloat)z
 {
 	_upX = x;
 	_upY = y;
@@ -124,21 +124,21 @@
 	_dirty = YES;
 }
 
--(void) eyeX: (float*)x eyeY:(float*)y eyeZ:(float*)z
+-(void) eyeX: (CGFloat*)x eyeY:(CGFloat*)y eyeZ:(CGFloat*)z
 {
 	*x = _eyeX;
 	*y = _eyeY;
 	*z = _eyeZ;
 }
 
--(void) centerX: (float*)x centerY:(float*)y centerZ:(float*)z
+-(void) centerX: (CGFloat*)x centerY:(CGFloat*)y centerZ:(CGFloat*)z
 {
 	*x = _centerX;
 	*y = _centerY;
 	*z = _centerZ;
 }
 
--(void) upX: (float*)x upY:(float*)y upZ:(float*)z
+-(void) upX: (CGFloat*)x upY:(CGFloat*)y upZ:(CGFloat*)z
 {
 	*x = _upX;
 	*y = _upY;

@@ -115,10 +115,10 @@ void ccDrawPoly( const CGPoint *vertices, NSUInteger numOfVertices, BOOL closePo
 void ccDrawSolidPoly( const CGPoint *poli, NSUInteger numberOfPoints, ccColor4F color );
     
 /** draws a circle given the center, radius and number of segments measured in points */
-void ccDrawCircle( CGPoint center, float radius, float angle, NSUInteger segments, BOOL drawLineToCenter);
+void ccDrawCircle( CGPoint center, CGFloat radius, CGFloat angle, NSUInteger segments, BOOL drawLineToCenter);
 
 /** draws a solid circle given the center, radius and number of segments measured in points */
-void ccDrawSolidCircle( CGPoint center, float radius, NSUInteger segments);
+void ccDrawSolidCircle( CGPoint center, CGFloat radius, NSUInteger segments);
     
 /** draws a arc given the center, radius, arc length and number of segments measured in points */
 void ccDrawArc(CGPoint center, CGFloat r, CGFloat a, CGFloat arcLength, NSUInteger segs, BOOL drawLineToCenter);

@@ -265,10 +265,10 @@
 		_textureAtlas = nil;
 		_dirty = _recursiveDirty = NO;
 
-		float x1 = _offsetPosition.x;
-		float y1 = _offsetPosition.y;
-		float x2 = x1 + _rect.size.width;
-		float y2 = y1 + _rect.size.height;
+		CGFloat x1 = _offsetPosition.x;
+		CGFloat y1 = _offsetPosition.y;
+		CGFloat x2 = x1 + _rect.size.width;
+		CGFloat y2 = y1 + _rect.size.height;
 		_quad.bl.vertices = (ccVertex3F) { x1, y1, 0 };
 		_quad.br.vertices = (ccVertex3F) { x2, y1, 0 };
 		_quad.tl.vertices = (ccVertex3F) { x1, y2, 0 };
@@ -318,10 +318,10 @@
 	else
 	{
 		// Atlas: Vertex
-		float x1 = _offsetPosition.x;
-		float y1 = _offsetPosition.y;
-		float x2 = x1 + _rect.size.width;
-		float y2 = y1 + _rect.size.height;
+		CGFloat x1 = _offsetPosition.x;
+		CGFloat y1 = _offsetPosition.y;
+		CGFloat x2 = x1 + _rect.size.width;
+		CGFloat y2 = y1 + _rect.size.height;
 
 		// Don't update Z.
 		_quad.bl.vertices = (ccVertex3F) { x1, y1, 0 };
@@ -345,10 +345,10 @@
 	if(!tex)
 		return;
 
-	float atlasWidth = (float)tex.pixelsWide;
-	float atlasHeight = (float)tex.pixelsHigh;
+	CGFloat atlasWidth = (CGFloat)tex.pixelsWide;
+	CGFloat atlasHeight = (CGFloat)tex.pixelsHigh;
 
-	float left, right ,top , bottom;
+	CGFloat left, right ,top , bottom;
 
 	if(_rectRotated)
     {
@@ -438,29 +438,29 @@
 
 			CGSize size = _rect.size;
 
-			float x1 = _offsetPosition.x;
-			float y1 = _offsetPosition.y;
+			CGFloat x1 = _offsetPosition.x;
+			CGFloat y1 = _offsetPosition.y;
 
-			float x2 = x1 + size.width;
-			float y2 = y1 + size.height;
-			float x = _transformToBatch.tx;
-			float y = _transformToBatch.ty;
+			CGFloat x2 = x1 + size.width;
+			CGFloat y2 = y1 + size.height;
+			CGFloat x = _transformToBatch.tx;
+			CGFloat y = _transformToBatch.ty;
 
-			float cr = _transformToBatch.a;
-			float sr = _transformToBatch.b;
-			float cr2 = _transformToBatch.d;
-			float sr2 = -_transformToBatch.c;
-			float ax = x1 * cr - y1 * sr2 + x;
-			float ay = x1 * sr + y1 * cr2 + y;
+			CGFloat cr = _transformToBatch.a;
+			CGFloat sr = _transformToBatch.b;
+			CGFloat cr2 = _transformToBatch.d;
+			CGFloat sr2 = -_transformToBatch.c;
+			CGFloat ax = x1 * cr - y1 * sr2 + x;
+			CGFloat ay = x1 * sr + y1 * cr2 + y;
 
-			float bx = x2 * cr - y1 * sr2 + x;
-			float by = x2 * sr + y1 * cr2 + y;
+			CGFloat bx = x2 * cr - y1 * sr2 + x;
+			CGFloat by = x2 * sr + y1 * cr2 + y;
 
-			float cx = x2 * cr - y2 * sr2 + x;
-			float cy = x2 * sr + y2 * cr2 + y;
+			CGFloat cx = x2 * cr - y2 * sr2 + x;
+			CGFloat cy = x2 * sr + y2 * cr2 + y;
 
-			float dx = x1 * cr - y2 * sr2 + x;
-			float dy = x1 * sr + y2 * cr2 + y;
+			CGFloat dx = x1 * cr - y2 * sr2 + x;
+			CGFloat dy = x1 * sr + y2 * cr2 + y;
 
 			_quad.bl.vertices = (ccVertex3F) { RENDER_IN_SUBPIXEL(ax), RENDER_IN_SUBPIXEL(ay), _vertexZ };
 			_quad.br.vertices = (ccVertex3F) { RENDER_IN_SUBPIXEL(bx), RENDER_IN_SUBPIXEL(by), _vertexZ };
@@ -696,55 +696,55 @@
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setRotation:(float)rot
+-(void)setRotation:(CGFloat)rot
 {
 	[super setRotation:rot];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setRotationX:(float)rot
+-(void)setRotationX:(CGFloat)rot
 {
 	[super setRotationX:rot];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setRotationY:(float)rot
+-(void)setRotationY:(CGFloat)rot
 {
 	[super setRotationY:rot];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setSkewX:(float)sx
+-(void)setSkewX:(CGFloat)sx
 {
 	[super setSkewX:sx];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setSkewY:(float)sy
+-(void)setSkewY:(CGFloat)sy
 {
 	[super setSkewY:sy];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setScaleX:(float) sx
+-(void)setScaleX:(CGFloat) sx
 {
 	[super setScaleX:sx];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setScaleY:(float) sy
+-(void)setScaleY:(CGFloat) sy
 {
 	[super setScaleY:sy];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void)setScale:(float) s
+-(void)setScale:(CGFloat) s
 {
 	[super setScale:s];
 	SET_DIRTY_RECURSIVELY();
 }
 
--(void) setVertexZ:(float)z
+-(void) setVertexZ:(CGFloat)z
 {
 	[super setVertexZ:z];
 	SET_DIRTY_RECURSIVELY();

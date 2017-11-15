@@ -31,7 +31,7 @@
 
 @interface CCTransitionProgress : CCTransitionScene
 {
-	float _to, _from;
+	CGFloat _to, _from;
 	CCScene *_sceneToBeModified;
 }
 // Needed for BridgeSupport

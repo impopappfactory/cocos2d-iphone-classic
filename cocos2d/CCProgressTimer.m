@@ -101,7 +101,7 @@ const char kCCProgressTextureCoords = 0x4b;
 	[super dealloc];
 }
 
--(void)setPercentage:(float) percentage
+-(void)setPercentage:(CGFloat) percentage
 {
 	if(_percentage != percentage) {
     _percentage = clampf( percentage, 0, 100);
@@ -264,9 +264,9 @@ const char kCCProgressTextureCoords = 0x4b;
 		return;
 	}
   
-	float alpha = _percentage / 100.f;
+	CGFloat alpha = _percentage / 100.f;
   
-	float angle = 2.f*((float)M_PI) * ( _reverseDirection == YES ? alpha : 1.f - alpha);
+	CGFloat angle = 2.f*((CGFloat)M_PI) * ( _reverseDirection == YES ? alpha : 1.f - alpha);
   
 	//	We find the vector to do a hit detection based on the percentage
 	//	We know the first vector is the one @ 12 o'clock (top,mid) so we rotate
@@ -293,7 +293,7 @@ const char kCCProgressTextureCoords = 0x4b;
 		//	intersection point
 		//	We loop through five points since the top is split in half
     
-		float min_t = FLT_MAX;
+		CGFloat min_t = FLT_MAX;
     
 		for (int i = 0; i <= kProgressTextureCoordsCount; ++i) {
 			int pIndex = (i + (kProgressTextureCoordsCount - 1))%kProgressTextureCoordsCount;
@@ -310,7 +310,7 @@ const char kCCProgressTextureCoords = 0x4b;
 			}
       
 			//	s and t are returned by ccpLineIntersect
-			float s = 0, t = 0;
+			CGFloat s = 0, t = 0;
 			if(ccpLineIntersect(edgePtA, edgePtB, _midpoint, percentagePt, &s, &t))
 			{
         
@@ -398,7 +398,7 @@ const char kCCProgressTextureCoords = 0x4b;
 	if (!_sprite) {
 		return;
 	}
-	float alpha = _percentage / 100.f;
+	CGFloat alpha = _percentage / 100.f;
 	CGPoint alphaOffset = ccpMult(ccp(1.f * (1.f - _barChangeRate.x) + alpha * _barChangeRate.x, 1.f * (1.f - _barChangeRate.y) + alpha * _barChangeRate.y), .5f);
 	CGPoint min = ccpSub(_midpoint, alphaOffset);
 	CGPoint max = ccpAdd(_midpoint, alphaOffset);

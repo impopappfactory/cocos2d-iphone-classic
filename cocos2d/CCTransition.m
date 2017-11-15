@@ -519,8 +519,8 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	CCActionInterval *inA, *outA;
 	[_inScene setVisible: NO];
 
-	float inDeltaZ, inAngleZ;
-	float outDeltaZ, outAngleZ;
+	CGFloat inDeltaZ, inAngleZ;
+	CGFloat outDeltaZ, outAngleZ;
 
 	if( orientation == kCCTransitionOrientationRightOver ) {
 		inDeltaZ = 90;
@@ -566,8 +566,8 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	CCActionInterval *inA, *outA;
 	[_inScene setVisible: NO];
 
-	float inDeltaZ, inAngleZ;
-	float outDeltaZ, outAngleZ;
+	CGFloat inDeltaZ, inAngleZ;
+	CGFloat outDeltaZ, outAngleZ;
 
 	if( orientation == kCCTransitionOrientationUpOver ) {
 		inDeltaZ = 90;
@@ -612,8 +612,8 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	CCActionInterval *inA, *outA;
 	[_inScene setVisible: NO];
 
-	float inDeltaZ, inAngleZ;
-	float outDeltaZ, outAngleZ;
+	CGFloat inDeltaZ, inAngleZ;
+	CGFloat outDeltaZ, outAngleZ;
 
 	if( orientation == kCCTransitionOrientationRightOver ) {
 		inDeltaZ = 90;
@@ -657,8 +657,8 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	CCActionInterval *inA, *outA;
 	[_inScene setVisible: NO];
 
-	float inDeltaZ, inAngleZ;
-	float outDeltaZ, outAngleZ;
+	CGFloat inDeltaZ, inAngleZ;
+	CGFloat outDeltaZ, outAngleZ;
 
 	if( orientation == kCCTransitionOrientationRightOver ) {
 		inDeltaZ = 90;
@@ -709,8 +709,8 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	CCActionInterval *inA, *outA;
 	[_inScene setVisible: NO];
 
-	float inDeltaZ, inAngleZ;
-	float outDeltaZ, outAngleZ;
+	CGFloat inDeltaZ, inAngleZ;
+	CGFloat outDeltaZ, outAngleZ;
 
 	if( orientation == kCCTransitionOrientationUpOver ) {
 		inDeltaZ = 90;
@@ -762,8 +762,8 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	CCActionInterval *inA, *outA;
 	[_inScene setVisible: NO];
 
-	float inDeltaZ, inAngleZ;
-	float outDeltaZ, outAngleZ;
+	CGFloat inDeltaZ, inAngleZ;
+	CGFloat outDeltaZ, outAngleZ;
 
 	if( orientation == kCCTransitionOrientationUpOver ) {
 		inDeltaZ = 90;
@@ -960,7 +960,7 @@ const NSInteger kSceneFade = 0xFADEFADE;
 {
 	[super onEnter];
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	float aspect = s.width / s.height;
+	CGFloat aspect = s.width / s.height;
 	int x = 12 * aspect;
 	int y = 12;
 
@@ -1046,7 +1046,7 @@ const NSInteger kSceneFade = 0xFADEFADE;
 	[super onEnter];
 
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	float aspect = s.width / s.height;
+	CGFloat aspect = s.width / s.height;
 	int x = 12 * aspect;
 	int y = 12;
 

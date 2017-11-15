@@ -96,8 +96,8 @@
 {
 	_tileOffset = tileOffset;
 	NSAssert((self.tileSize.width > 0 && self.tileSize.height > 0), @"Error in [CCTMXTilesetInfo setTileOffset:], tileSize is Zero");
-	float normalizedOffsetX = tileOffset.x / _tileSize.width;
-	float normalizedOffsetY = tileOffset.y / _tileSize.height;
+	CGFloat normalizedOffsetX = tileOffset.x / _tileSize.width;
+	CGFloat normalizedOffsetY = tileOffset.y / _tileSize.height;
 	_tileAnchorPoint = CGPointMake(normalizedOffsetX, normalizedOffsetY);
 }
 

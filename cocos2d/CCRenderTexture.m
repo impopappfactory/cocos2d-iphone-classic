@@ -188,16 +188,16 @@
 
 	// Calculate the adjustment ratios based on the old and new projections
 	CGSize size = [director winSizeInPixels];
-	float widthRatio = size.width / texSize.width;
-	float heightRatio = size.height / texSize.height;
+	CGFloat widthRatio = size.width / texSize.width;
+	CGFloat heightRatio = size.height / texSize.height;
 
 
 	// Adjust the orthographic projection and viewport
 	glViewport(0, 0, texSize.width, texSize.height );
 
 	kmMat4 orthoMatrix;
-	kmMat4OrthographicProjection(&orthoMatrix, (float)-1.0 / widthRatio,  (float)1.0 / widthRatio,
-								 (float)-1.0 / heightRatio, (float)1.0 / heightRatio, -1,1 );
+	kmMat4OrthographicProjection(&orthoMatrix, (CGFloat)-1.0 / widthRatio,  (CGFloat)1.0 / widthRatio,
+								 (CGFloat)-1.0 / heightRatio, (CGFloat)1.0 / heightRatio, -1,1 );
 	kmGLMultMatrix(&orthoMatrix);
     
 
@@ -205,7 +205,7 @@
 	glBindFramebuffer(GL_FRAMEBUFFER, _FBO);
 }
 
--(void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a depth:(float)depthValue stencil:(int)stencilValue flags:(GLbitfield)flags
+-(void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a depth:(CGFloat)depthValue stencil:(int)stencilValue flags:(GLbitfield)flags
 {
 	[self begin];
 	
@@ -241,16 +241,16 @@
 		glClearStencil(stencilClearValue);
 }
 
--(void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a
+-(void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a
 {
 	[self beginWithClear:r g:g b:b a:a depth:0 stencil:0 flags:GL_COLOR_BUFFER_BIT];
 }
 
--(void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a depth:(float)depthValue
+-(void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a depth:(CGFloat)depthValue
 {
 	[self beginWithClear:r g:g b:b a:a depth:depthValue stencil:0 flags:GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT];
 }
--(void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a depth:(float)depthValue stencil:(int)stencilValue
+-(void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a depth:(CGFloat)depthValue stencil:(int)stencilValue
 {
 	[self beginWithClear:r g:g b:b a:a depth:depthValue stencil:stencilValue flags:GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT];
 }
@@ -269,13 +269,13 @@
 	kmGLPopMatrix();
 }
 
--(void)clear:(float)r g:(float)g b:(float)b a:(float)a
+-(void)clear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a
 {
 	[self beginWithClear:r g:g b:b a:a];
 	[self end];
 }
 
-- (void)clearDepth:(float)depthValue
+- (void)clearDepth:(CGFloat)depthValue
 {
 	[self begin];
 	//! save old depth value

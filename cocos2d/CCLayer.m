@@ -119,7 +119,7 @@
 	}
 }
 
--(void) setAccelerometerInterval:(float)interval
+-(void) setAccelerometerInterval:(CGFloat)interval
 {
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:interval];
 }
@@ -705,20 +705,20 @@
 {
     [super updateColor];
 
-	float h = ccpLength(_vector);
+	CGFloat h = ccpLength(_vector);
     if (h == 0)
 		return;
 
-	float c = sqrtf(2);
+	CGFloat c = sqrtf(2);
     CGPoint u = ccp(_vector.x / h, _vector.y / h);
 
 	// Compressed Interpolation mode
 	if( _compressedInterpolation ) {
-		float h2 = 1 / ( fabsf(u.x) + fabsf(u.y) );
-		u = ccpMult(u, h2 * (float)c);
+		CGFloat h2 = 1 / ( fabsf(u.x) + fabsf(u.y) );
+		u = ccpMult(u, h2 * (CGFloat)c);
 	}
 
-	float opacityf = (float)_displayedOpacity/255.0f;
+	CGFloat opacityf = (CGFloat)_displayedOpacity/255.0f;
 
     ccColor4F S = {
 		_displayedColor.r / 255.0f,

@@ -299,9 +299,9 @@
 
 -(void)calculateVertexPoints
 {
-	float width = (float)_texture.pixelsWide;
-	float height = (float)_texture.pixelsHigh;
-	float imageH = _texture.contentSizeInPixels.height;
+	CGFloat width = (CGFloat)_texture.pixelsWide;
+	CGFloat height = (CGFloat)_texture.pixelsHigh;
+	CGFloat imageH = _texture.contentSizeInPixels.height;
 
 	int x, y, i;
 
@@ -375,7 +375,7 @@
 	NSAssert( pos.x == (NSUInteger)pos.x && pos.y == (NSUInteger) pos.y , @"Numbers must be integers");
 
 	NSInteger index = (pos.x * (_gridSize.height+1) + pos.y) * 3;
-	float *vertArray = (float *)_vertices;
+	CGFloat *vertArray = (CGFloat *)_vertices;
 
 	ccVertex3F	vert = { vertArray[index], vertArray[index+1], vertArray[index+2] };
 
@@ -387,7 +387,7 @@
 	NSAssert( pos.x == (NSUInteger)pos.x && pos.y == (NSUInteger) pos.y , @"Numbers must be integers");
 
 	NSInteger index = (pos.x * (_gridSize.height+1) + pos.y) * 3;
-	float *vertArray = (float *)_originalVertices;
+	CGFloat *vertArray = (CGFloat *)_originalVertices;
 
 	ccVertex3F	vert = { vertArray[index], vertArray[index+1], vertArray[index+2] };
 
@@ -399,7 +399,7 @@
 	NSAssert( pos.x == (NSUInteger)pos.x && pos.y == (NSUInteger) pos.y , @"Numbers must be integers");
 
 	NSInteger index = (pos.x * (_gridSize.height+1) + pos.y) * 3;
-	float *vertArray = (float *)_vertices;
+	CGFloat *vertArray = (CGFloat *)_vertices;
 	vertArray[index] = vertex.x;
 	vertArray[index+1] = vertex.y;
 	vertArray[index+2] = vertex.z;
@@ -458,9 +458,9 @@
 
 -(void)calculateVertexPoints
 {
-	float width = (float)_texture.pixelsWide;
-	float height = (float)_texture.pixelsHigh;
-	float imageH = _texture.contentSizeInPixels.height;
+	CGFloat width = (CGFloat)_texture.pixelsWide;
+	CGFloat height = (CGFloat)_texture.pixelsHigh;
+	CGFloat imageH = _texture.contentSizeInPixels.height;
 
 	NSInteger numQuads = _gridSize.width * _gridSize.height;
 
@@ -484,10 +484,10 @@
 	{
 		for( y = 0; y < _gridSize.height; y++ )
 		{
-			float x1 = x * _step.x;
-			float x2 = x1 + _step.x;
-			float y1 = y * _step.y;
-			float y2 = y1 + _step.y;
+			CGFloat x1 = x * _step.x;
+			CGFloat x2 = x1 + _step.x;
+			CGFloat y1 = y * _step.y;
+			CGFloat y2 = y1 + _step.y;
 
 			*vertArray++ = x1;
 			*vertArray++ = y1;
@@ -502,8 +502,8 @@
 			*vertArray++ = y2;
 			*vertArray++ = 0;
 
-			float newY1 = y1;
-			float newY2 = y2;
+			CGFloat newY1 = y1;
+			CGFloat newY2 = y2;
 
 			if( _isTextureFlipped ) {
 				newY1 = imageH - y1;
@@ -540,7 +540,7 @@
 	NSAssert( pos.x == (NSUInteger)pos.x && pos.y == (NSUInteger) pos.y , @"Numbers must be integers");
 	
 	NSInteger idx = (_gridSize.height * pos.x + pos.y) * 4 * 3;
-	float *vertArray = (float*)_vertices;
+	CGFloat *vertArray = (CGFloat*)_vertices;
 	memcpy(&vertArray[idx], &coords, sizeof(ccQuad3));
 }
 
@@ -549,7 +549,7 @@
 	NSAssert( pos.x == (NSUInteger)pos.x && pos.y == (NSUInteger) pos.y , @"Numbers must be integers");
 
 	NSInteger idx = (_gridSize.height * pos.x + pos.y) * 4 * 3;
-	float *vertArray = (float*)_originalVertices;
+	CGFloat *vertArray = (CGFloat*)_originalVertices;
 
 	ccQuad3 ret;
 	memcpy(&ret, &vertArray[idx], sizeof(ccQuad3));
@@ -562,7 +562,7 @@
 	NSAssert( pos.x == (NSUInteger)pos.x && pos.y == (NSUInteger) pos.y , @"Numbers must be integers");
 
 	NSInteger idx = (_gridSize.height * pos.x + pos.y) * 4 * 3;
-	float *vertArray = (float*)_vertices;
+	CGFloat *vertArray = (CGFloat*)_vertices;
 
 	ccQuad3 ret;
 	memcpy(&ret, &vertArray[idx], sizeof(ccQuad3));

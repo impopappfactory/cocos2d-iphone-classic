@@ -36,12 +36,12 @@
 @synthesize amplitude=_amplitude;
 @synthesize amplitudeRate=_amplitudeRate;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize waves:wav amplitude:amp] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -257,12 +257,12 @@
 
 @synthesize lensEffect=_lensEffect;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(float)radius
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)radius
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize position:pos radius:radius] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(float)radius
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)radius
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -314,8 +314,8 @@
 					r = _radius - r;
 					CGFloat pre_log = r / _radius;
 					if ( pre_log == 0 ) pre_log = 0.001f;
-					float l = logf(pre_log) * _lensEffect;
-					float new_r = expf( l ) * _radius;
+					CGFloat l = logf(pre_log) * _lensEffect;
+					CGFloat new_r = expf( l ) * _radius;
 
 					if ( ccpLength(vect) > 0 )
 					{
@@ -346,12 +346,12 @@
 @synthesize amplitudeRate = _amplitudeRate;
 
 
-+(id)actionWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(float)r waves:(NSInteger)wav amplitude:(float)amp
++(id)actionWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)r waves:(NSInteger)wav amplitude:(CGFloat)amp
 {
 	return [[[self alloc] initWithDuration:d size:gridSize position:pos radius:r waves:wav amplitude:amp] autorelease];
 }
 
--(id)initWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(float)r waves:(NSInteger)wav amplitude:(float)amp
+-(id)initWithDuration:(ccTime)d size:(CGSize)gridSize position:(CGPoint)pos radius:(CGFloat)r waves:(NSInteger)wav amplitude:(CGFloat)amp
 {
 	if ( (self = [super initWithDuration:d size:gridSize]) )
 	{
@@ -465,12 +465,12 @@
 @synthesize amplitude=_amplitude;
 @synthesize amplitudeRate=_amplitudeRate;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize waves:wav amplitude:amp] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -515,12 +515,12 @@
 @synthesize amplitude=_amplitude;
 @synthesize amplitudeRate=_amplitudeRate;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize waves:wav amplitude:amp horizontal:h vertical:v] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(float)amp horizontal:(BOOL)h vertical:(BOOL)v
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize waves:(NSUInteger)wav amplitude:(CGFloat)amp horizontal:(BOOL)h vertical:(BOOL)v
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -572,12 +572,12 @@
 @synthesize amplitude = _amplitude;
 @synthesize amplitudeRate = _amplitudeRate;
 
-+(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(float)amp
++(id)actionWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(CGFloat)amp
 {
 	return [[[self alloc] initWithDuration:duration size:gridSize position:pos twirls:t amplitude:amp] autorelease];
 }
 
--(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(float)amp
+-(id)initWithDuration:(ccTime)duration size:(CGSize)gridSize position:(CGPoint)pos twirls:(NSUInteger)t amplitude:(CGFloat)amp
 {
 	if ( (self = [super initWithDuration:duration size:gridSize]) )
 	{
@@ -617,8 +617,8 @@
 			CGFloat amp = 0.1f * _amplitude * _amplitudeRate;
 			CGFloat a = r * cosf( (CGFloat)M_PI/2.0f + time * (CGFloat)M_PI * _twirls * 2 ) * amp;
 
-			float cosA = cosf(a);
-			float sinA = sinf(a);
+			CGFloat cosA = cosf(a);
+			CGFloat sinA = sinf(a);
 
 			CGPoint	d = {
 				sinA * (v.y-c.y) + cosA * (v.x-c.x),

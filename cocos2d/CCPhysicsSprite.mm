@@ -70,12 +70,12 @@
 	cpBodySetPos(_cpBody, position);
 }
 
--(float)rotation
+-(CGFloat)rotation
 {
 	return (_ignoreBodyRotation ? super.rotation : -CC_RADIANS_TO_DEGREES(cpBodyGetAngle(_cpBody)));
 }
 
--(void)setRotation:(float)rotation
+-(void)setRotation:(CGFloat)rotation
 {
 	if(_ignoreBodyRotation){
 		super.rotation = rotation;
@@ -113,30 +113,30 @@
 {
 	b2Vec2 pos  = _b2Body->GetPosition();
 	
-	float x = pos.x * _PTMRatio;
-	float y = pos.y * _PTMRatio;
+	CGFloat x = pos.x * _PTMRatio;
+	CGFloat y = pos.y * _PTMRatio;
 	return ccp(x,y);
 }
 
 -(void)setPosition:(CGPoint)position
 {
-	float angle = _b2Body->GetAngle();
+	CGFloat angle = _b2Body->GetAngle();
 	_b2Body->SetTransform( b2Vec2(position.x / _PTMRatio, position.y / _PTMRatio), angle );
 }
 
--(float)rotation
+-(CGFloat)rotation
 {
 	return (_ignoreBodyRotation ? super.rotation :
 			CC_RADIANS_TO_DEGREES( _b2Body->GetAngle() ) );
 }
 
--(void)setRotation:(float)rotation
+-(void)setRotation:(CGFloat)rotation
 {
 	if(_ignoreBodyRotation){
 		super.rotation = rotation;
 	} else {
 		b2Vec2 p = _b2Body->GetPosition();
-		float radians = CC_DEGREES_TO_RADIANS(rotation);
+		CGFloat radians = CC_DEGREES_TO_RADIANS(rotation);
 		_b2Body->SetTransform( p, radians);
 	}
 }
@@ -146,8 +146,8 @@
 {
 	b2Vec2 pos  = _b2Body->GetPosition();
 	
-	float x = pos.x * _PTMRatio;
-	float y = pos.y * _PTMRatio;
+	CGFloat x = pos.x * _PTMRatio;
+	CGFloat y = pos.y * _PTMRatio;
 	
 	if ( _ignoreAnchorPointForPosition ) {
 		x += _anchorPointInPoints.x;
@@ -155,9 +155,9 @@
 	}
 	
 	// Make matrix
-	float radians = _b2Body->GetAngle();
-	float c = cosf(radians);
-	float s = sinf(radians);
+	CGFloat radians = _b2Body->GetAngle();
+	CGFloat c = cosf(radians);
+	CGFloat s = sinf(radians);
 	
 	// Although scale is not used by physics engines, it is calculated just in case
 	// the sprite is animated (scaled up/down) using actions.

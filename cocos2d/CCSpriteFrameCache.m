@@ -137,12 +137,12 @@ static CCSpriteFrameCache *_sharedSpriteFrameCache=nil;
 		NSDictionary *frameDict = [framesDict objectForKey:frameDictKey];
 		CCSpriteFrame *spriteFrame=nil;
 		if(format == 0) {
-			float x = [[frameDict objectForKey:@"x"] floatValue];
-			float y = [[frameDict objectForKey:@"y"] floatValue];
-			float w = [[frameDict objectForKey:@"width"] floatValue];
-			float h = [[frameDict objectForKey:@"height"] floatValue];
-			float ox = [[frameDict objectForKey:@"offsetX"] floatValue];
-			float oy = [[frameDict objectForKey:@"offsetY"] floatValue];
+			CGFloat x = [[frameDict objectForKey:@"x"] floatValue];
+			CGFloat y = [[frameDict objectForKey:@"y"] floatValue];
+			CGFloat w = [[frameDict objectForKey:@"width"] floatValue];
+			CGFloat h = [[frameDict objectForKey:@"height"] floatValue];
+			CGFloat ox = [[frameDict objectForKey:@"offsetX"] floatValue];
+			CGFloat oy = [[frameDict objectForKey:@"offsetY"] floatValue];
 			int ow = [[frameDict objectForKey:@"originalWidth"] intValue];
 			int oh = [[frameDict objectForKey:@"originalHeight"] intValue];
 			// check ow/oh

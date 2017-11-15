@@ -110,25 +110,25 @@ typedef enum
 
 /** starts rendering to the texture while clearing the texture first.
  This is more efficient then calling -clear first and then -begin */
--(void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a;
+-(void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a;
 
 /** starts rendering to the texture while clearing the texture first.
  This is more efficient then calling -clear first and then -begin */
-- (void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a depth:(float)depthValue;
+- (void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a depth:(CGFloat)depthValue;
 
 /** starts rendering to the texture while clearing the texture first.
  This is more efficient then calling -clear first and then -begin */
-- (void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a depth:(float)depthValue stencil:(int)stencilValue;
+- (void)beginWithClear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a depth:(CGFloat)depthValue stencil:(int)stencilValue;
 
 
 /** ends grabbing */
 -(void)end;
 
 /** clears the texture with a color */
--(void)clear:(float)r g:(float)g b:(float)b a:(float)a;
+-(void)clear:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a;
 
 /** clears the texture with a specified depth value */
-- (void)clearDepth:(float)depthValue;
+- (void)clearDepth:(CGFloat)depthValue;
 
 /** clears the texture with a specified stencil value */
 - (void)clearStencil:(int)stencilValue;

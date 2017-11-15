@@ -242,7 +242,7 @@ CGFloat ccpToAngle(const CGPoint v);
 /** Clamp a value between from and to.
  @since v0.99.1
  */
-float clampf(float value, float min_inclusive, float max_inclusive);
+CGFloat clampf(CGFloat value, CGFloat min_inclusive, CGFloat max_inclusive);
 
 /** Clamp a point between from and to.
  @since v0.99.1
@@ -256,12 +256,12 @@ CGPoint ccpFromSize(CGSize s);
 
 /** Run a math operation function on each point component
  * absf, fllorf, ceilf, roundf
- * any function that has the signature: float func(float);
+ * any function that has the signature: CGFloat func(CGFloat);
  * For example: let's try to take the floor of x,y
  * ccpCompOp(p,floorf);
  @since v0.99.1
  */
-CGPoint ccpCompOp(CGPoint p, float (*opFunc)(float));
+CGPoint ccpCompOp(CGPoint p, CGFloat (*opFunc)(CGFloat));
 
 /** Linear Interpolation between two points a and b
  @returns
@@ -270,13 +270,13 @@ CGPoint ccpCompOp(CGPoint p, float (*opFunc)(float));
 	otherwise a value between a..b
  @since v0.99.1
  */
-CGPoint ccpLerp(CGPoint a, CGPoint b, float alpha);
+CGPoint ccpLerp(CGPoint a, CGPoint b, CGFloat alpha);
 
 
 /** @returns if points have fuzzy equality which means equal with some degree of variance.
  @since v0.99.1
  */
-BOOL ccpFuzzyEqual(CGPoint a, CGPoint b, float variance);
+BOOL ccpFuzzyEqual(CGPoint a, CGPoint b, CGFloat variance);
 
 
 /** Multiplies a nd b components, a.x*b.x, a.y*b.y
@@ -288,12 +288,12 @@ CGPoint ccpCompMult(CGPoint a, CGPoint b);
 /** @returns the signed angle in radians between two vector directions
  @since v0.99.1
  */
-float ccpAngleSigned(CGPoint a, CGPoint b);
+CGFloat ccpAngleSigned(CGPoint a, CGPoint b);
 
 /** @returns the angle in radians between two vector directions
  @since v0.99.1
 */
-float ccpAngle(CGPoint a, CGPoint b);
+CGFloat ccpAngle(CGPoint a, CGPoint b);
 
 /** Rotates a point counter clockwise by the angle around a pivot
  @param v is the point to rotate
@@ -302,7 +302,7 @@ float ccpAngle(CGPoint a, CGPoint b);
  @returns the rotated point
  @since v0.99.1
  */
-CGPoint ccpRotateByAngle(CGPoint v, CGPoint pivot, float angle);
+CGPoint ccpRotateByAngle(CGPoint v, CGPoint pivot, CGFloat angle);
 
 /** A general line-line intersection test
  @param p1
@@ -327,7 +327,7 @@ CGPoint ccpRotateByAngle(CGPoint v, CGPoint pivot, float angle);
  */
 BOOL ccpLineIntersect(CGPoint p1, CGPoint p2,
 					  CGPoint p3, CGPoint p4,
-					  float *s, float *t);
+					  CGFloat *s, CGFloat *t);
 
 /*
  ccpSegmentIntersect returns YES if Segment A-B intersects with segment C-D
